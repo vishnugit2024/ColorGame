@@ -179,7 +179,7 @@
   background-image: url('https://winfast.site/images/n0-30bd92d1.png');
 }
 .ball-5 {
-  background-image: url('	https://winfast.site/images/n5-49d0e9c5.png');
+  background-image: url('https://winfast.site/images/n5-49d0e9c5.png');
 }
 .ball-9 {
   background-image: url('https://winfast.site/images/n9-a20f6f42.png');
@@ -772,4 +772,19 @@
     grid-template-columns: 1.5fr 0.8fr 0.8fr 0.9fr;
     font-size: 14px;
   }
+}
+
+
+
+.number-image-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.number-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }

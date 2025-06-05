@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 const NumberBall = ({ number, colors, size = 'large', clickable = false }) => {
   const getGradient = (colors) => {
     if (colors.includes('red') && colors.includes('violet')) {
