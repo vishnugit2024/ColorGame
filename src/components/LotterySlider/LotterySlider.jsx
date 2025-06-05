@@ -13,7 +13,7 @@ const games = [
   {
     title: "Win Go",
     image: WinGo,
-    link: "/game/win-go",
+    link: "/wingo",
   },
   {
     title: "K3",
