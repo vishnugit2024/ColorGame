@@ -7,9 +7,7 @@
   bottom: 0;
   z-index: 1000;
   width: 25rem !important;
-  height: 60px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  height: 70px;
 }
 
 .nav-item {
@@ -21,8 +19,8 @@
 }
 
 .nav-icon {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   margin-bottom: 4px;
 }
 
@@ -38,15 +36,16 @@
 /* Highlighted Promotion Button */
 .promotion-item {
   position: relative;
-  top: -19px; /* Lift the button above navbar */
+  top: -12px; /* Lift the button above navbar */
   z-index: 1010;
 }
 
 .promotion-circle {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+
+  height: 60px;
   background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
-  border: 3px solid white;
+  border: 2px solid white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -55,8 +54,8 @@
 }
 
 .promotion-circle img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }

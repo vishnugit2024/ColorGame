@@ -99,6 +99,9 @@
   gap: 10px;
   padding-top: 10px;
 }
+.action-buttons a {
+  text-decoration: none;
+}
 
 .action-item {
   display: flex;
@@ -141,6 +144,9 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
+}
+.history-card a {
+  text-decoration: none;
 }
 
 .history-card {

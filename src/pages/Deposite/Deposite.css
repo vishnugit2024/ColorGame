@@ -1,0 +1,151 @@
+.deposit-section {
+  padding: 15px;
+  margin: auto;
+}
+
+.deposite-balance-card {
+  background: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  border-radius: 12px;
+  padding: 15px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.deposite-balance-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  /* font-weight: bold; */
+  font-size: 16px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.deposite-balance-icon {
+  width: 20px;
+}
+
+.deposite-balance-amount {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.card-icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.card-icon {
+  width: 25px;
+  height: 20px;
+}
+
+.payment-methods {
+  margin: 0.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.method {
+  flex: 1;
+  background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: black;
+  cursor: pointer;
+}
+
+.method.selected {
+  background: #3c2d98;
+  color: white;
+}
+
+.method img {
+  width: 30px;
+  margin-bottom: 5px;
+}
+
+.method-label {
+  font-size: 10px;
+  color: #8f5206;
+  margin-bottom: 0.75rem;
+}
+
+.deposit-card {
+  background: #3c2d98;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.deposit-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.deposit-header img {
+  width: 18px;
+}
+
+.amount-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.amount-btn {
+  background: #f9c447;
+  border: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-amount {
+  display: flex;
+  align-items: center;
+  background: #2d1a6e;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
+
+.custom-amount span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.custom-amount input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+.deposit-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #7f50d6, #c14fd8);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}

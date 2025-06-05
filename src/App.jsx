@@ -12,6 +12,7 @@ import Activity from "./pages/Activity/Activity";
 import Wallet from "./pages/Wallet/Wallet";
 import Account from "./pages/Account/Account";
 import BottomNav from "./components/BottomBar/BottomNav";
+import Deposite from "./pages/Deposite/Deposite";
 const App = () => {
   return (
     <>
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/activity" element={<Activity />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/deposite" element={<Deposite />} />
         </Routes>
         <BottomNav />
       </div>

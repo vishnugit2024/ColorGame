@@ -10,9 +10,14 @@ const Header = () => {
         <Link to={"/"}>
           <img src={logo} alt="logo" />
         </Link>
-        <Link to={"#"}>
-          <i className="bi bi-chat-left-dots-fill header-icon"></i>
-        </Link>
+        <div>
+          <Link to={"#"}>
+            <i className="bi bi-chat-left-dots-fill header-icon"></i>
+          </Link>
+          <Link to={"#"}>
+            <i class="bi bi-capslock-fill app-download"></i>{" "}
+          </Link>
+        </div>
       </header>
     </>
   );

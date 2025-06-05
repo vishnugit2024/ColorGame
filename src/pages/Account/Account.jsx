@@ -9,6 +9,7 @@ import accountvip from "../../assets/accountvip.png";
 import accountwallet from "../../assets/accountwallet.png";
 import accountwithdraw from "../../assets/accountwithdraw.png";
 import accountwallet1 from "../../assets/accountwallet1.png";
+import { Link } from "react-router-dom";
 const Account = () => {
   return (
     <>
@@ -26,8 +27,8 @@ const Account = () => {
               <div className="uid-section">
                 <span className="uid-label">UID |</span>
                 <span className="uid-value">1234567890</span>
-               
-                  <i className="bi bi-copy small-icon"></i>
+
+                <i className="bi bi-copy small-icon"></i>
               </div>
               <span className="join-date">Join Date: 03:40 16/01/2024</span>
             </div>
@@ -45,79 +46,101 @@ const Account = () => {
             </div>
           </div>
           <div className="action-buttons">
-            <div className="action-item">
-              <div className="action-icon wallet-bg">
-                <img src={accountwallet} alt="Wallet" />{" "}
-                {/* REPLACE with your actual wallet icon path */}
+            <Link to="/wallet">
+              <div className="action-item">
+                <div className="action-icon wallet-bg">
+                  <img src={accountwallet} alt="Wallet" />{" "}
+                  {/* REPLACE with your actual wallet icon path */}
+                </div>
+                <span className="action-text">Wallet</span>
               </div>
-              <span className="action-text">Wallet</span>
-            </div>
-            <div className="action-item">
-              <div className="action-icon deposit-bg">
-                <img src={accountdeposite} alt="Deposit" />{" "}
-                {/* REPLACE with your actual deposit icon path */}
+            </Link>
+            <Link to={"/deposit"}>
+              <div className="action-item">
+                <div className="action-icon deposit-bg">
+                  <img src={accountdeposite} alt="Deposit" />{" "}
+                  {/* REPLACE with your actual deposit icon path */}
+                </div>
+                <span className="action-text">Deposit</span>
               </div>
-              <span className="action-text">Deposit</span>
-            </div>
-            <div className="action-item">
-              <div className="action-icon withdraw-bg">
-                <img src={accountwithdraw} alt="Withdraw" />{" "}
-                {/* REPLACE with your actual withdraw icon path */}
+            </Link>
+            <Link to="/withdraw">
+              <div className="action-item">
+                <div className="action-icon withdraw-bg">
+                  <img src={accountwithdraw} alt="Withdraw" />{" "}
+                  {/* REPLACE with your actual withdraw icon path */}
+                </div>
+                <span className="action-text">Withdraw</span>
               </div>
-              <span className="action-text">Withdraw</span>
-            </div>
-            <div className="action-item">
-              <div className="action-icon vip-bg">
-                <img src={accountvip} alt="VIP" />{" "}
-                {/* REPLACE with your actual VIP icon path */}
+            </Link>
+            <Link to="/vip">
+              <div className="action-item">
+                <div className="action-icon vip-bg">
+                  <img src={accountvip} alt="VIP" />{" "}
+                  {/* REPLACE with your actual VIP icon path */}
+                </div>
+                <span className="action-text">VIP</span>
               </div>
-              <span className="action-text">VIP</span>
-            </div>
+            </Link>
           </div>
         </section>
 
         <section className="history-sections">
           <div className="history-row">
             <div className="history-card">
-              <div className="card-icon">
+             <Link >
+               <div className="card-icon">
                 <img src={accountbet} alt="Bet" />{" "}
               </div>
-              <div className="card-text">
+             </Link>
+             <Link>
+               <div className="card-text">
                 <span className="card-title">Bet</span>
                 <span className="card-subtitle">My betting history</span>
               </div>
+             </Link>
             </div>
             <div className="history-card">
-              <div className="card-icon transaction-bg">
+             <Link>
+               <div className="card-icon transaction-bg">
                 <img src={accounttransition} alt="Transaction" />{" "}
                 {/* REPLACE with your actual transaction icon path */}
               </div>
-              <div className="card-text">
+             </Link>
+              <Link><div className="card-text">
                 <span className="card-title">Transaction</span>
                 <span className="card-subtitle">My transaction history</span>
-              </div>
+              </div></Link>
             </div>
           </div>
           <div className="history-row">
             <div className="history-card">
-              <div className="card-icon deposit-history-bg">
+             <Link>
+               <div className="card-icon deposit-history-bg">
                 <img src={accountdeposite1} alt="Deposit" />{" "}
                 {/* REPLACE with your actual deposit history icon path */}
               </div>
-              <div className="card-text">
+             </Link>
+              <Link>
+                <div className="card-text">
                 <span className="card-title">Deposit</span>
                 <span className="card-subtitle">My deposit history</span>
               </div>
+              </Link>
             </div>
             <div className="history-card">
-              <div className="card-icon withdraw-history-bg">
+              <Link>
+                <div className="card-icon withdraw-history-bg">
                 <img src={accountwallet1} alt="Withdraw" />{" "}
                 {/* REPLACE with your actual withdraw history icon path */}
               </div>
-              <div className="card-text">
+              </Link>
+             <Link>
+               <div className="card-text">
                 <span className="card-title">Withdraw</span>
                 <span className="card-subtitle">My withdraw history</span>
               </div>
+             </Link>
             </div>
           </div>
         </section>

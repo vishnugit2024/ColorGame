@@ -2,7 +2,7 @@
   background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
   position: sticky;
   top: 0;
-  padding: 0.50rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,4 +20,16 @@
   padding-left: 10px;
   z-index: 1;
   cursor: pointer;
+}
+
+.header .app-download {
+  transform: rotate(
+    180deg
+  ); /* You can change 45deg to any degree like 90deg, 180deg, 360deg */
+  font-size: 20px;
+  color: #fff;
+  padding-right: 10px;
+  z-index: 1;
+  cursor: pointer;
+  display: inline-block;
 }
