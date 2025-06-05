@@ -1,7 +1,7 @@
 
 import React from 'react';
 import '../../pages/wingo/game.css';
-import NumberBall from './NumberBall';
+// import NumberBall from './NumberBall';
 const numberImageUrls = {
   0: "https://winfast.site/images/n0-30bd92d1.png",
   1: "https://winfast.site/images/n1-dfccbff5.png",

@@ -74,7 +74,7 @@
 }
 /* part 2 */
 .game-nav {
-  height: 6.5rem;
+  height: 5.5rem;
   width: 98%;
   background: #3c2d98;
   border-radius: 12px;
@@ -467,12 +467,7 @@
   overflow: hidden;
 }
 
-.modal-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+
 
 .modal-header h3 {
   margin-bottom: 10px;
@@ -788,3 +783,22 @@
   height: 60px;
   object-fit: contain;
 }
+
+
+/* bet panel change color dynamically css here */
+/* .bet-modal.green-theme { */
+  /* background: linear-gradient(90deg, #3faa70 0%, #47ba7c 100%); */
+/* } */
+
+/* .bet-modal.violet-theme {
+  background-color: #f1dcfa;
+}
+
+.bet-modal.red-theme {
+  background-color: #ffd6d6;
+}
+.bet-modal {
+  border-radius: 12px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+} */

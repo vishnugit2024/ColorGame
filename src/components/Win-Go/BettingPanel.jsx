@@ -1,43 +1,36 @@
-
 import React, { useState } from 'react';
-
+import '../../pages/wingo/game.css';
 const BettingPanel = ({ onPlaceBet, currentBets }) => {
   const [selectedAmount, setSelectedAmount] = useState(1);
   const [betType, setBetType] = useState('');
   const [showBetModal, setShowBetModal] = useState(false);
-
   const betAmounts = [1, 10, 100, 1000];
   const multipliers = [1, 5, 10, 20, 50, 100];
-
   const handleBetClick = (type) => {
     setBetType(type);
     setShowBetModal(true);
   };
-
   const confirmBet = () => {
     if (betType && selectedAmount > 0) {
       onPlaceBet(betType, selectedAmount);
       setShowBetModal(false);
     }
   };
-
   const getTotalBetAmount = () => {
     return Object.values(currentBets).reduce((sum, amount) => sum + amount, 0);
   };
-
   if (showBetModal) {
     return (
       <div className="bet-modal-overlay">
-        <div className="bet-modal">
+        <div className={`bet-modal ${betType}-theme`}>
           <div className="modal-header">
             <h3>Win Go 1min</h3>
             <div className="bet-selection">
               Select {betType}
             </div>
           </div>
-
           <div className="modal-content">
-            <div className="balance-section">
+            <div className="balance-section-2">
               <span>Balance</span>
               <div className="balance-options">
                 {betAmounts.map(amount => (
@@ -51,7 +44,6 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
                 ))}
               </div>
             </div>
-
             <div className="quantity-section">
               <span>Quantity</span>
               <div className="quantity-controls">
@@ -75,7 +67,6 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
                 </button>
               </div>
             </div>
-
             <div className="multiplier-section">
               {multipliers.map(mult => (
                 <button
@@ -87,14 +78,12 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
                 </button>
               ))}
             </div>
-
             <div className="agreement">
               <input type="checkbox" id="agree" defaultChecked />
               <label htmlFor="agree">I agree</label>
               <span className="presale-rules">(Pre-sale rules)</span>
             </div>
           </div>
-
           <div className="modal-actions">
             <button 
               className="cancel-btn"
@@ -130,29 +119,6 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
     {currentBets.red && <span className="bet-amount">₹{currentBets.red}</span>}
   </button>
 </div>
-{/* wehbeh */}
-
-
-{/* whhdbhdb */}
-
-      {/* <div className="size-bets">
-        <button 
-          className="bet-btn big-bet"
-          onClick={() => handleBetClick('big')}
-        >
-         
-          Big
-          {currentBets.big && <span className="bet-amount">₹{currentBets.big}</span>}
-        </button>
-        <button 
-          className="bet-btn small-bet"
-          onClick={() => handleBetClick('small')}
-        >
-          Small
-          {currentBets.small && <span className="bet-amount">₹{currentBets.small}</span>}
-        </button>
-      </div> */}
-
       {getTotalBetAmount() > 0 && (
         <div className="total-bets">
           Total Bets: ₹{getTotalBetAmount()}
