@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  background-color: black;
+}
+
+:root {
+  --primary-color: #644dd8;
+  --secondary-color: #a251d8;
+  --cream-color: #f7eb8b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#app {
+  width: 25rem !important;
+  height: -webkit-fit-content;
+  height: fit-content;
+  min-height: 100vh;
+  padding: 0;
+  margin: auto;
+  background: #231d5a;
+  font-size: 16px;
+  padding-bottom: 100px;
+}

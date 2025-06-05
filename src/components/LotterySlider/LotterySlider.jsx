@@ -1,0 +1,73 @@
+// import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import WinGo from "../../assets/wingo.png";
+import ludo from "../../assets/Ludo.png";
+import "swiper/css";
+import "swiper/css/navigation";
+import "./LotterySlider.css";
+import { Link } from "react-router-dom"; // or 'next/link' if using Next.js
+
+// Dummy Game Data
+const games = [
+  {
+    title: "Win Go",
+    image: WinGo,
+    link: "/game/win-go",
+  },
+  {
+    title: "K3",
+    image: ludo,
+    link: "/game/k3",
+  },
+  {
+    title: "Mega Dice",
+    image: WinGo,
+    link: "/game/mega-dice",
+  },
+  {
+    title: "Lucky Ball",
+    image: ludo,
+    link: "/game/lucky-ball",
+  },
+];
+
+const LotterySlider = () => {
+  return (
+    <div className="lottery-section">
+      <div className="lottery-header d-flex justify-content-between align-items-center mb-3">
+        <h5 className="lottery-title">
+          <span className="dot"></span> Lottery
+        </h5>
+        <button className="view-all-btn">All {games.length} &gt;</button>
+      </div>
+
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={16}
+        slidesPerView={2}
+        loop={true}
+        autoplay={{ delay: 2000 }}
+        className="lottery-slider"
+      >
+        {games.map((game, index) => (
+          <SwiperSlide key={index}>
+            <Link to={game.link} className="Lottery-game-card">
+              <h6 className="Lottery-game-title">{game.title}</h6>
+              <img
+                src={game.image}
+                alt={game.title}
+                className="Lottery-game-img"
+              />
+              <button className="go-btn">
+                GO <span>&gt;</span>
+              </button>
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+export default LotterySlider;

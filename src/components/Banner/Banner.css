@@ -1,0 +1,15 @@
+.banner-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.banner-img {
+  border-radius: 20px;
+  padding: 5px;
+  height: 150px;
+  object-fit: fill;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}

@@ -1,0 +1,62 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  width: 25rem !important;
+  height: 60px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.nav-label {
+  font-size: 12px;
+  color: white;
+}
+
+.nav-label.active {
+  color: #ffd100;
+}
+
+/* Highlighted Promotion Button */
+.promotion-item {
+  position: relative;
+  top: -19px; /* Lift the button above navbar */
+  z-index: 1010;
+}
+
+.promotion-circle {
+  width: 70px;
+  height: 70px;
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  border: 3px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.promotion-circle img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}

@@ -1,0 +1,244 @@
+/* Header/Profile Section (mostly same as before) */
+.profile-header {
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  padding: 50px 20px;
+  color: white;
+  position: relative;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profile-picture {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+.uid-section {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  padding: 2px 5px;
+  border-radius: 15px;
+  font-size: 0.6em;
+  margin-bottom: 5px;
+}
+
+.uid-label {
+  margin-right: 5px;
+  opacity: 0.8;
+}
+
+.user-details i {
+  color: white; /* Still relevant if there's text or a faint border */
+  margin-left: 5px;
+}
+
+.join-date {
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Balance Section (mostly same as before) */
+.balance-section {
+  background-color: rgb(60, 45, 152);
+  margin: -30px 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.balance-header {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  position: relative;
+}
+
+.total-balance-label {
+  font-size: 14px;
+  color: var(--cream-color);
+  margin-right: 10px;
+}
+
+.balance-amount {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--cream-color);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-icon img {
+  /* Styling for images inside action icons */
+  max-width: 60%; /* Make icon slightly smaller than its container */
+  max-height: 60%;
+  object-fit: contain;
+}
+
+.action-text {
+  font-size: 0.9em;
+  color: var(--cream-color);
+  font-weight: 500;
+}
+
+/* History Sections (mostly same as before) */
+.history-sections {
+  padding: 0 15px;
+  margin: 20px 0;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.history-card {
+  background-color: rgb(60, 45, 152);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.card-title {
+  color: #fff;
+}
+
+.card-subtitle {
+  font-size: 0.75em;
+  color: #cac5c5;
+}
+
+/* Menu List (mostly same as before) */
+.menu-list {
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.menu-item {
+  background-color: rgb(60, 45, 152);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon i {
+  font-size: 1.5rem;
+  color: var(--cream-color);
+}
+
+.menu-text {
+  font-size: 14px;
+  color: #fff;
+  flex-grow: 1;
+}
+
+.menu-arrow-icon {
+  width: 12px; /* Adjust size as needed */
+  height: 12px;
+  object-fit: contain;
+  margin-left: auto;
+  filter: invert(0.8) sepia(1) saturate(0) hue-rotate(200deg) brightness(1.5); /* Example to make it greyish */
+}
+
+.logout-button {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid yellow;
+  padding: 5px 0;
+  border-radius: 5rem;
+  background-color: transparent;
+  text-align: center;
+  color: yellow;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

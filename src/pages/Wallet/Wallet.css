@@ -1,0 +1,121 @@
+.wallet-text {
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.wallet-text .wallet-icon {
+  font-size: 2rem;
+}
+
+.balance {
+  font-size: 2rem;
+  color: #fff38a;
+}
+
+.wallet-text .total-balance {
+  font-size: 14.4px;
+  margin-bottom: 15px;
+  color: #cab8ee;
+  font-weight: 700;
+}
+
+.wallet-container {
+  background-color: #3c2d98;
+  border-radius: 10px;
+  margin: 10px auto auto;
+  padding-bottom: 30px;
+  width: 92%;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.wallet-circles {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0px 10px;
+  width: 100%;
+}
+
+.wallet-circle {
+  text-align: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #000;
+  border: 8px solid #5d51d6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+}
+
+.circle.light {
+  border: 8px solid white;
+
+  color: #fff;
+  background-color: #000;
+}
+
+.wallet-amount {
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.wallet-label {
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.transfer-button {
+  all: unset;
+  background: linear-gradient(90deg, #d30095, #383cbc);
+  color: white;
+  width: 85%;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 1rem auto;
+  display: block;
+}
+
+.wallet-actions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.action-item img {
+  width: 63px;
+  height: 63px;
+}
+
+.action-item p {
+  font-size: 13px;
+  color: #fff38a;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0.5rem 0;
+  line-height: 1.1;
+}
