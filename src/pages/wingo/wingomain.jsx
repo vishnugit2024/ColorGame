@@ -13,58 +13,76 @@ const Index = () => {
   const [timeRemaining, setTimeRemaining] = useState(34);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
   const [activeTab, setActiveTab] = useState("1min");
-  const [bettingHistory] = useState([{
-        period: '202506050731',
-        time: '07:31:00',
-        betType: 'green',
-        amount: 250.00,
-        status: 'success'
-      },
-      {
-        period: '202506050730',
-        time: '07:30:00',
-        betType: 'red',
-        amount: 100.00,
-        status: 'failed'
-      },
-      {
-        period: '202506050729',
-        time: '07:29:00',
-        betType: 'number-5',
-        amount: 450.00,
-        status: 'success'
-      },
-      {
-        period: '202506050728',
-        time: '07:28:00',
-        betType: 'big',
-        amount: 200.00,
-        status: 'failed'
-      },
-      {
-        period: '202506050727',
-        time: '07:27:00',
-        betType: 'violet',
-        amount: 675.00,
-        status: 'success'
-      },
-      {
-        period: '202506050726',
-        time: '07:26:00',
-        betType: 'small',
-        amount: 150.00,
-        status: 'failed'
-      },
-      {
-        period: '202506050725',
-        time: '07:25:00',
-        betType: 'number-3',
-        amount: 540.00,
-        status: 'success'
-      },]);
-// popup ke liye timer state start 
-   const [popupTimer, setPopupTimer] = useState(null);
-  const [showPopup, setShowPopup] = useState(false); 
+  const [bettingHistory] = useState([
+    {
+      period: "202506050731",
+      time: "07:31:00",
+      betType: "green",
+      amount: 250.0,
+      status: "success",
+    },
+    {
+      period: "202506050730",
+      time: "07:30:00",
+      betType: "red",
+      amount: 100.0,
+      status: "failed",
+    },
+    {
+      period: "202506050729",
+      time: "07:29:00",
+      betType: "number-5",
+      amount: 450.0,
+      status: "success",
+    },
+    {
+      period: "202506050728",
+      time: "07:28:00",
+      betType: "big",
+      amount: 200.0,
+      status: "failed",
+    },
+    {
+      period: "202506050727",
+      time: "07:27:00",
+      betType: "violet",
+      amount: 675.0,
+      status: "success",
+    },
+    {
+      period: "202506050726",
+      time: "07:26:00",
+      betType: "small",
+      amount: 150.0,
+      status: "failed",
+    },
+    {
+      period: "202506050725",
+      time: "07:25:00",
+      betType: "number-3",
+      amount: 540.0,
+      status: "success",
+    },
+  ]);
+  // esme jo small and big per click krne per jo modal open hoga betingpenel se
+  const [selectedAmount, setSelectedAmount] = useState(1);
+  const [betType, setBetType] = useState("");
+  const [showBetModal, setShowBetModal] = useState(false);
+  const handleBetClick = (type) => {
+    setBetType(type);
+    setSelectedAmount(1);
+    setShowBetModal(true);
+  };
+
+  const confirmBet = () => {
+    if (betType && selectedAmount > 0) {
+      placeBet(betType, selectedAmount);
+      setShowBetModal(false);
+    }
+  };
+  // popup ke liye timer state start
+  const [popupTimer, setPopupTimer] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeRemaining((prev) => {
@@ -77,7 +95,7 @@ const Index = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-   useEffect(() => {
+  useEffect(() => {
     let popupInterval;
     let randomDelayTimer;
     const startRandomPopup = () => {
@@ -106,7 +124,7 @@ const Index = () => {
       clearTimeout(randomDelayTimer);
     };
   }, [showPopup, popupTimer]);
-// pupup ke liye timer end
+  // pupup ke liye timer end
   const generateGameResult = () => {
     const winningNumber = Math.floor(Math.random() * 10);
     const isSmall = winningNumber < 5;
@@ -196,8 +214,7 @@ const Index = () => {
       <br />
       <div className="info-bar">
         <div className="how-to-play">
-          <button className="how-btn">📖 How to play
-          </button>
+          <button className="how-btn">📖 How to play</button>
           <div className="win-go-info">
             Win Go {activeTab.replace("min", "Min")}
           </div>
@@ -235,20 +252,18 @@ const Index = () => {
             onPlaceBet={placeBet}
             balance={balance}
             currentBets={currentBets}
+             handleBetClick={handleBetClick}
           />
-          <GameBoard
+          <GameBoard onBetClick={handleBetClick} 
             gameResults={gameResults}
             onBet={placeBet}
             currentBets={currentBets}
           />
         </>
       )}
-      <GameHistory
-        results={gameResults}
-        bettingHistory={bettingHistory}
-      />
+      <GameHistory results={gameResults} bettingHistory={bettingHistory} />
       {/* popup timer start */}
-       {/* {showPopup && popupTimer !== null && (
+      {/* {showPopup && popupTimer !== null && (
         <div className="random-timer-overlay">
           <div className="random-timer-popup">
             <div className="random-timer-digits-container">
@@ -263,10 +278,79 @@ const Index = () => {
             </div>
           </div>
         </div> */}
-        
+
       {/* )} */}
 
       {/* popup timer end */}
+
+      {showBetModal && (
+  <div className="bet-modal-overlay">
+    <div className={`bet-modal ${betType}-theme`}>
+      <div className={`modal-header ${betType}-header`}>
+        <h3>Win Go 1min</h3>
+        <div className="bet-selection">Select {betType}</div>
+      </div>
+      <div className="modal-content">
+        <div className="balance-section-2">
+          <span>Balance</span>
+          <div className="balance-options">
+            {[1, 10, 100, 1000].map((amount) => (
+              <button
+                key={amount}
+                className={`balance-btn ${selectedAmount === amount ? 'active' : ''}`}
+                onClick={() => setSelectedAmount(amount)}
+              >
+                {amount}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="quantity-section">
+          <span>Quantity</span>
+          <div className="quantity-controls">
+            <button
+              className="quantity-btn"
+              onClick={() => setSelectedAmount(Math.max(1, selectedAmount - 1))}
+            >-</button>
+            <input
+              type="number"
+              value={selectedAmount}
+              onChange={(e) => setSelectedAmount(Math.max(1, parseInt(e.target.value) || 1))}
+              className="quantity-input"
+            />
+            <button
+              className="quantity-btn"
+              onClick={() => setSelectedAmount(selectedAmount + 1)}
+            >+</button>
+          </div>
+        </div>
+        <div className="multiplier-section">
+          {[1, 5, 10, 20, 50, 100].map((mult) => (
+            <button
+              key={mult}
+              className="multiplier-btn"
+              onClick={() => setSelectedAmount(selectedAmount * mult)}
+            >
+              X{mult}
+            </button>
+          ))}
+        </div>
+        <div className="agreement">
+          <input type="checkbox" id="agree" defaultChecked />
+          <label htmlFor="agree">I agree</label>
+          <span className="presale-rules">(Pre-sale rules)</span>
+        </div>
+      </div>
+      <div className="modal-actions">
+        <button className="cancel-btn" onClick={() => setShowBetModal(false)}>Cancel</button>
+        <button className="confirm-btn" onClick={confirmBet}>
+          Total amount ₹{selectedAmount}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
