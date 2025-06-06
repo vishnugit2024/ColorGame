@@ -109,6 +109,7 @@ const GameHistory = ({ results, bettingHistory = [] }) => {
                 {currentBettingHistory.map((bet, index) => (
                   
                   <div key={index} className="betting-history-item">
+                    
                     <div className="bet-info">
                       <div className={`bet-type-icon ${bet.betType.includes('green') ? 'green' : bet.betType.includes('red') ? 'red' : bet.betType.includes('violet') ? 'violet' : bet.betType.includes('big') ? 'big' : 'small'}`}>
                         {bet.betType.includes('number-') ? bet.betType.split('-')[1] : 
@@ -126,15 +127,12 @@ const GameHistory = ({ results, bettingHistory = [] }) => {
                       <span className={`bet-status ${bet.status}`}>
                         {bet.status}
                       </span>
-
-
                       <div className={`bet-amount ${bet.status === 'success' ? 'positive' : 'negative'}`}>
                         {bet.status === 'success' ? '+' : '-'}₹{Math.abs(bet.amount).toFixed(2)}
                       </div>
-
                     </div>
-
                   </div>
+
                 ))}
               </div>
               
