@@ -1,0 +1,177 @@
+.withdraw-section {
+  padding: 15px;
+  margin: auto;
+}
+
+.add-icon-box {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.add-icon {
+  width: 50px;
+  height: 50px;
+  border: 2px dashed #999;
+  border-radius: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #999;
+}
+
+.add-title {
+  font-size: 14px;
+  color: lightgray;
+  text-align: center;
+}
+
+.add-subtitle {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bank-card {
+  background-color: #5d51d6;
+  padding: 18px 16px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* font-weight: 500; */
+  font-size: 14px;
+  color: white;
+  text-align: left;
+}
+
+.bank-name {
+  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+  border-right: 1px solid #231d5a;
+}
+
+.account-number {
+  flex: 1;
+  padding-left: 10px;
+  font-family: monospace;
+}
+
+.payment-withdraw-section {
+  padding: 15px;
+  margin: 15px;
+  margin-top: 0;
+  background-color: #3c2d98;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.amount-input input,
+.password-input input {
+  width: 100%;
+  padding: 12px 40px 12px 35px;
+  background-color: #231d5a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: white;
+  z-index: 999;
+}
+
+.balance-info {
+  font-size: 13px;
+  color: lightgray;
+}
+
+.balance-info .withdrawable-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-info .withdrawable-balance button {
+  all: unset;
+  color: lightgray;
+  cursor: pointer;
+  font-size: 11px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 2px 25px;
+}
+
+.balance-info .received {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-info .received span {
+  color: rgb(255, 152, 50);
+}
+
+.balance-info p {
+  margin: 5px 0;
+}
+
+.balance-info .received span {
+  color: #ffbf47;
+  font-weight: bold;
+}
+
+.withdraw-btn {
+  width: 100%;
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.withdraw-note {
+  padding: 12px 15px;
+  border: 1px solid gold;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.withdraw-note strong {
+  color: #ffbf47;
+}
+
+.withdraw-note ul {
+  padding-left: 18px;
+  list-style-type: "◆ ";
+}
+
+.withdraw-note li {
+  margin-bottom: 8px;
+}

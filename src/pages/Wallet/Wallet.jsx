@@ -4,6 +4,7 @@ import walletdeposite from "../../assets/walletdeposite.png";
 import walletdepositehistroy from "../../assets/walletdepositehistroy.png";
 import walletwithdraw from "../../assets/walletwithdraw.png";
 import walletwithdrawhistory from "../../assets/walletwithdrawhistory.png";
+import { Link } from "react-router-dom";
 
 const Wallet = () => {
   return (
@@ -39,30 +40,38 @@ const Wallet = () => {
         </button>
 
         <div className="wallet-actions">
-          <div className="action-item">
-            <img src={walletdeposite} alt="Deposit" />
-            <p>Deposit</p>
-          </div>
-          <div className="action-item">
-            <img src={walletwithdraw} alt="Withdraw" />
-            <p>Withdraw</p>
-          </div>
-          <div className="action-item">
-            <img src={walletdepositehistroy} alt="Deposit History" />
-            <p>
-              Deposit
-              <br />
-              history
-            </p>
-          </div>
-          <div className="action-item">
-            <img src={walletwithdrawhistory} alt="Withdrawal History" />
-            <p>
-              Withdrawal
-              <br />
-              history
-            </p>
-          </div>
+          <Link to="/deposit">
+            <div className="action-item">
+              <img src={walletdeposite} alt="Deposit" />
+              <p>Deposit</p>
+            </div>
+          </Link>
+          <Link>
+            <div className="action-item">
+              <img src={walletwithdraw} alt="Withdraw" />
+              <p>Withdraw</p>
+            </div>
+          </Link>
+          <Link>
+            <div className="action-item">
+              <img src={walletdepositehistroy} alt="Deposit History" />
+              <p>
+                Deposit
+                <br />
+                history
+              </p>
+            </div>
+          </Link>
+          <Link>
+            <div className="action-item">
+              <img src={walletwithdrawhistory} alt="Withdrawal History" />
+              <p>
+                Withdrawal
+                <br />
+                history
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </>

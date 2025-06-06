@@ -21,6 +21,10 @@
   font-weight: 700;
 }
 
+.wallet-actions a {
+  text-decoration: none;
+}
+
 .wallet-container {
   background-color: #3c2d98;
   border-radius: 10px;

@@ -1,12 +1,13 @@
 import React from "react";
 import "./HomeFooter.css";
-import logo from "../../assets/KWG.png";
+import { Link } from "react-router-dom";
 const HomeFooter = () => {
   return (
     <div className="kwg-container">
-      <div className="kwg-header">
-        <img src={logo} alt="logo" />
-        <div className="age-badge">+18</div>
+      <div className="kwg-logo">
+        <Link to={"/"}>
+          <h3>DIGI DEMO</h3>
+        </Link>
       </div>
 
       <div className="logo-grid">

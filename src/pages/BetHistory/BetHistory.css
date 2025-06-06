@@ -1,0 +1,74 @@
+.loss-history-container {
+  padding: 10px;
+}
+
+.loss-card {
+  background-color: #3f279e;
+  border-radius: 10px;
+  padding: 15px;
+    color: #cccccc;
+  margin-bottom: 12px;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.loss-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loss-card-header h4 {
+  font-size: 12px;
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+}
+
+.loss-status {
+  color: #8f5206;
+  font-size: 14px;
+}
+
+.loss-time {
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.loss-details {
+  padding-left: 20px;
+  position: relative;
+}
+
+.loss-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.dot-line {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffbfbf,
+    #ffbfbf 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  border-radius: 10px;
+}
+
+.bottom-dot {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  background-color: #ffbfbf;
+  border-radius: 50%;
+}

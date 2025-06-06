@@ -10,8 +10,15 @@
   position: sticky;
 }
 
-.header img {
-  height: 35px;
+.header .header-logo a {
+  text-decoration: none;
+}
+
+.header .header-logo h3  {
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+    font-family: emoji;
 }
 
 .header .header-icon {

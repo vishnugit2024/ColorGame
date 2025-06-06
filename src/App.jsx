@@ -13,6 +13,9 @@ import Wallet from "./pages/Wallet/Wallet";
 import Account from "./pages/Account/Account";
 import BottomNav from "./components/BottomBar/BottomNav";
 import Deposite from "./pages/Deposite/Deposite";
+import Withdraw from "./pages/Withdraw/Withdraw";
+import Addbank from "./pages/Withdraw/Addbank";
+import BetHistory from "./pages/BetHistory/BetHistory";
 const App = () => {
   return (
     <>
@@ -26,7 +29,10 @@ const App = () => {
           <Route path="/activity" element={<Activity />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/deposite" element={<Deposite />} />
+          <Route path="/deposit" element={<Deposite />} />
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/addbank" element={<Addbank />} />
+          <Route path="/betHistory" element={<BetHistory />} />
         </Routes>
         <BottomNav />
       </div>
