@@ -23,7 +23,7 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
     return (
       <div className="bet-modal-overlay">
         <div className={`bet-modal ${betType}-theme`}>
-       <div className={`modal-header ${betType}-header`}>
+       <div className={`modal-header-1 ${betType}-header`}>
             <h3>Win Go 1min</h3>
             <div className="bet-selection">
               Select {betType}
