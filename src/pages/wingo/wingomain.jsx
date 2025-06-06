@@ -13,7 +13,6 @@ const Index = () => {
   const [timeRemaining, setTimeRemaining] = useState(34);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
   const [activeTab, setActiveTab] = useState("1min");
-
   const [bettingHistory] = useState([{
         period: '202506050731',
         time: '07:31:00',
@@ -63,10 +62,9 @@ const Index = () => {
         amount: 540.00,
         status: 'success'
       },]);
-
+// popup ke liye timer state start 
    const [popupTimer, setPopupTimer] = useState(null);
   const [showPopup, setShowPopup] = useState(false); 
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeRemaining((prev) => {
@@ -82,7 +80,6 @@ const Index = () => {
    useEffect(() => {
     let popupInterval;
     let randomDelayTimer;
-
     const startRandomPopup = () => {
       const randomDelay = Math.random() * (15000 - 5000) + 5000;
       randomDelayTimer = setTimeout(() => {
@@ -90,9 +87,7 @@ const Index = () => {
         setShowPopup(true);
       }, randomDelay);
     };
-
     startRandomPopup();
-
     if (showPopup && popupTimer !== null) {
       popupInterval = setInterval(() => {
         setPopupTimer((prev) => {
@@ -106,14 +101,12 @@ const Index = () => {
         });
       }, 1000);
     }
-
     return () => {
       clearInterval(popupInterval);
       clearTimeout(randomDelayTimer);
     };
   }, [showPopup, popupTimer]);
-
-
+// pupup ke liye timer end
   const generateGameResult = () => {
     const winningNumber = Math.floor(Math.random() * 10);
     const isSmall = winningNumber < 5;
@@ -122,7 +115,6 @@ const Index = () => {
     else if (winningNumber === 5) colors = ["green", "violet"];
     else if ([1, 3, 7, 9].includes(winningNumber)) colors = ["green"];
     else if ([2, 4, 6, 8].includes(winningNumber)) colors = ["red"];
-
     const newResult = {
       period: currentPeriod,
       number: winningNumber,
@@ -130,16 +122,13 @@ const Index = () => {
       size: isSmall ? "Small" : "Big",
       timestamp: new Date().toLocaleString(),
     };
-
     setGameResults((prev) => [newResult, ...prev.slice(0, 9)]);
     setCurrentPeriod((prev) => String(parseInt(prev) + 1));
     processBets(newResult);
   };
-
   const processBets = (result) => {
     let totalWinnings = 0;
     let totalLoss = 0;
-
     Object.entries(currentBets).forEach(([betType, amount]) => {
       if (betType === "green" && result.colors.includes("green")) {
         totalWinnings += amount * 2;
@@ -157,11 +146,9 @@ const Index = () => {
         totalLoss += amount;
       }
     });
-
     setBalance((prev) => prev + totalWinnings - totalLoss);
     setCurrentBets({});
   };
-
   const placeBet = (betType, amount) => {
     if (balance >= amount) {
       setCurrentBets((prev) => ({
@@ -171,15 +158,11 @@ const Index = () => {
       setBalance((prev) => prev - amount);
     }
   };
-
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
-
-  
-
   return (
     <div className="game-container">
       <header className="game-header">
@@ -198,7 +181,6 @@ const Index = () => {
           </div>
         </div>
       </header>
-
       <nav className="game-nav">
         {["1min", "3min", "5min", "10min"].map((mode) => (
           <button
@@ -211,9 +193,7 @@ const Index = () => {
           </button>
         ))}
       </nav>
-
       <br />
-
       <div className="info-bar">
         <div className="how-to-play">
           <button className="how-btn">📖 How to play
@@ -229,7 +209,6 @@ const Index = () => {
             ))}
           </div>
         </div>
-
         <div className="time-remaining">
           <div className="label">Time remaining</div>
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -250,7 +229,6 @@ const Index = () => {
           <div className="period-id">{currentPeriod}</div>
         </div>
       </div>
-
       {activeTab && (
         <>
           <BettingPanel
@@ -265,7 +243,6 @@ const Index = () => {
           />
         </>
       )}
-
       <GameHistory
         results={gameResults}
         bettingHistory={bettingHistory}

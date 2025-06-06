@@ -12,8 +12,7 @@ import Activity from "./pages/Activity/Activity";
 import Wallet from "./pages/Wallet/Wallet";
 import Account from "./pages/Account/Account";
 import BottomNav from "./components/BottomBar/BottomNav";
-import "./pages/wingo/index"
-import Index from "./pages/wingo/index";
+import WingoMain from "./pages/wingo/wingomain";
 const App = () => {
   return (
     <>
@@ -27,7 +26,7 @@ const App = () => {
           <Route path="/activity" element={<Activity />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/wingo" element={<Index />} />
+          <Route path="/wingo" element={<WingoMain />} />
         </Routes>
         <BottomNav />
       </div>
