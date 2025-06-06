@@ -198,7 +198,7 @@ const Index = () => {
         <div className="how-to-play">
           <button className="how-btn">📖 How to play
           </button>
-          <div className="game-title">
+          <div className="win-go-info">
             Win Go {activeTab.replace("min", "Min")}
           </div>
           <div className="last-result">
@@ -247,7 +247,8 @@ const Index = () => {
         results={gameResults}
         bettingHistory={bettingHistory}
       />
-       {showPopup && popupTimer !== null && (
+      {/* popup timer start */}
+       {/* {showPopup && popupTimer !== null && (
         <div className="random-timer-overlay">
           <div className="random-timer-popup">
             <div className="random-timer-digits-container">
@@ -261,8 +262,11 @@ const Index = () => {
                 ))}
             </div>
           </div>
-        </div>
-      )}
+        </div> */}
+        
+      {/* )} */}
+
+      {/* popup timer end */}
     </div>
   );
 };
