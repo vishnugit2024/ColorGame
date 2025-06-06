@@ -976,3 +976,53 @@
   background-color: #dc3545; 
 }
 
+/* random countdown */
+.random-timer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000; 
+  backdrop-filter: blur(5px);
+}
+.random-timer-popup {
+  padding: 30px 50px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  animation: fadeInOut 4s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.random-timer-digits-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.random-timer-digit-card {
+ background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  color: #8d6e63;
+  font-size: 8em;
+  font-weight: bold;
+  width: 120px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.8); }
+  25% { opacity: 1; transform: scale(1); } 
+  75% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}

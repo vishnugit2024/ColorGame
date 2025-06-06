@@ -13,9 +13,59 @@ const Index = () => {
   const [timeRemaining, setTimeRemaining] = useState(34);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
   const [activeTab, setActiveTab] = useState("1min");
-  const [activeHistoryTab, setActiveHistoryTab] = useState("game-history");
 
-  const [bettingHistory] = useState([/* ... betting history entries ... */]);
+  const [bettingHistory] = useState([{
+        period: '202506050731',
+        time: '07:31:00',
+        betType: 'green',
+        amount: 250.00,
+        status: 'success'
+      },
+      {
+        period: '202506050730',
+        time: '07:30:00',
+        betType: 'red',
+        amount: 100.00,
+        status: 'failed'
+      },
+      {
+        period: '202506050729',
+        time: '07:29:00',
+        betType: 'number-5',
+        amount: 450.00,
+        status: 'success'
+      },
+      {
+        period: '202506050728',
+        time: '07:28:00',
+        betType: 'big',
+        amount: 200.00,
+        status: 'failed'
+      },
+      {
+        period: '202506050727',
+        time: '07:27:00',
+        betType: 'violet',
+        amount: 675.00,
+        status: 'success'
+      },
+      {
+        period: '202506050726',
+        time: '07:26:00',
+        betType: 'small',
+        amount: 150.00,
+        status: 'failed'
+      },
+      {
+        period: '202506050725',
+        time: '07:25:00',
+        betType: 'number-3',
+        amount: 540.00,
+        status: 'success'
+      },]);
+
+   const [popupTimer, setPopupTimer] = useState(null);
+  const [showPopup, setShowPopup] = useState(false); 
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -29,6 +79,40 @@ const Index = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+   useEffect(() => {
+    let popupInterval;
+    let randomDelayTimer;
+
+    const startRandomPopup = () => {
+      const randomDelay = Math.random() * (15000 - 5000) + 5000;
+      randomDelayTimer = setTimeout(() => {
+        setPopupTimer(4);
+        setShowPopup(true);
+      }, randomDelay);
+    };
+
+    startRandomPopup();
+
+    if (showPopup && popupTimer !== null) {
+      popupInterval = setInterval(() => {
+        setPopupTimer((prev) => {
+          if (prev <= 1) {
+            setShowPopup(false);
+            clearInterval(popupInterval);
+            startRandomPopup();
+            return null;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(popupInterval);
+      clearTimeout(randomDelayTimer);
+    };
+  }, [showPopup, popupTimer]);
+
 
   const generateGameResult = () => {
     const winningNumber = Math.floor(Math.random() * 10);
@@ -93,6 +177,8 @@ const Index = () => {
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
+
+  
 
   return (
     <div className="game-container">
@@ -184,6 +270,22 @@ const Index = () => {
         results={gameResults}
         bettingHistory={bettingHistory}
       />
+       {showPopup && popupTimer !== null && (
+        <div className="random-timer-overlay">
+          <div className="random-timer-popup">
+            <div className="random-timer-digits-container">
+              {String(popupTimer)
+                .padStart(2, "0")
+                .split("")
+                .map((digit, index) => (
+                  <div key={index} className="random-timer-digit-card">
+                    {digit}
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
