@@ -192,8 +192,8 @@ const Index = () => {
             </span>
           </div>
           <div className="wallet-actions">
-            <button className="withdraw-btn">Withdraw</button>
-            <button className="deposit-btn">Deposit</button>
+            <button className="withdraw-1">Withdraw</button>
+            <button className="deposit-2">Deposit</button>
           </div>
         </div>
       </header>
@@ -262,7 +262,7 @@ const Index = () => {
       )}
       <GameHistory results={gameResults} bettingHistory={bettingHistory} />
       {/* popup timer start */}
-      {/* {showPopup && popupTimer !== null && (
+      {showPopup && popupTimer !== null && (
         <div className="random-timer-overlay">
           <div className="random-timer-popup">
             <div className="random-timer-digits-container">
@@ -276,9 +276,9 @@ const Index = () => {
                 ))}
             </div>
           </div>
-        </div> */}
+        </div>
 
-      {/* )} */}
+      )}
 
       {/* popup timer end */}
       {/* small and big ka balance history start */}
