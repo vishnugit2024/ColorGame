@@ -45,33 +45,36 @@
   display: flex;
   gap: 15px;
 }
-.withdraw-btn,
-.deposit-btn {
+.withdraw-1,
+.deposit-2 {
+  display: flex;
   align-items: center;
+  justify-content: center;
   flex: 1;
   padding: 12px;
   border: none;
   border-radius: 5px;
-  justify-content: center;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Roboto, Inter, sans-serif;
 }
-.withdraw-btn {
-  background: #8f5206;
+.withdraw-1 {
+  background-color: #8f5206;
   color: white;
 }
-.deposit-btn {
-  background: #f5d142;
-  /* border-radius: 40px black; */
-  color: #333;
+.deposit-2 {
+  background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  color: #8f5206;
+   border:  solid #8f5206
+
 }
-.withdraw-btn:hover,
-.deposit-btn:hover {
+.withdraw-1:hover,
+.deposit-2:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 /* part 2 */
 .game-nav {
   height: 5.5rem;
@@ -116,7 +119,6 @@
   transform: translateY(-1px);
 }
 /* part 2 end */
-
 /* part 3 start */
 .info-bar {
   display: flex;
@@ -155,12 +157,10 @@
   margin-left: 5px;
   color: #8f5206;
 }
-
 .last-result {
   display: flex;
   gap: 4px;
 }
-
 .ball {
   width: 24px;
   height: 24px;

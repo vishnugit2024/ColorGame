@@ -192,8 +192,8 @@ const Index = () => {
             </span>
           </div>
           <div className="wallet-actions">
-            <button className="withdraw-btn">Withdraw</button>
-            <button className="deposit-btn">Deposit</button>
+            <button className="withdraw-1">Withdraw</button>
+            <button className="deposit-2">Deposit</button>
           </div>
         </div>
       </header>
