@@ -965,15 +965,24 @@
   border-radius: 10px 10px 0 0;
   color: white;
   text-align: center;
+  
 }
 .green-header {
   background-color: #28a745;
+ clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
+ padding-bottom: 2rem;
+ 
+  
 }
 .violet-header {
-  background-color: #8a2be2;
+    background: linear-gradient(#b659fe);
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    padding-bottom: 2rem;
 }
 .red-header {
   background-color: #dc3545; 
+  clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  padding-bottom: 2rem;
 }
 
 /* random countdown */
