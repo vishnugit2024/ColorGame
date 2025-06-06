@@ -281,7 +281,7 @@ const Index = () => {
       {/* )} */}
 
       {/* popup timer end */}
-      
+      {/* small and big ka balance history start */}
       {showBetModal && (
         <div className="bet-modal-overlay">
           <div className={`bet-modal ${betType}-theme`}>
@@ -365,6 +365,7 @@ const Index = () => {
             </div>
           </div>
         </div>
+        // small and big ka balance history end
       )}
     </div>
   );
