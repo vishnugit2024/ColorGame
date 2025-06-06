@@ -645,14 +645,17 @@
 .history-content,
 .chart-content {
   padding: 20px;
+  background-color: #3c2d98;
+  border-bottom: 1px solid #463f71;
+
 }
 .history-header,
 .chart-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #6550e6;
   border-radius: 8px;
   margin-bottom: 10px;
   font-weight: bold;
@@ -660,37 +663,43 @@
 .history-row,
 .chart-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   padding: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   align-items: center;
 }
 .number.color-green {
-  background: #2ed573;
-  color: white;
+  color: #2ed573;
+  height: 0.8rem;
+  line-height: normal;
   padding: 5px 10px;
   border-radius: 15px;
   display: inline-block;
   min-width: 30px;
   text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
 }
 .number.color-red {
-  background: #ff4757;
-  color: white;
+  color: #ff4757;
   padding: 5px 10px;
   border-radius: 15px;
   display: inline-block;
   min-width: 30px;
   text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 0.8rem;
+
 }
 .colors {
   display: flex;
   gap: 5px;
 }
 .color-dot {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
 }
 .color-dot.green {
