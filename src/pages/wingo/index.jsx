@@ -5,14 +5,100 @@ import GameBoard from "../../components/Win-Go/GameBoard";
 import BettingPanel from "../../components/Win-Go/BettingPanel";
 import GameHistory from "../../components/Win-Go/GameHistory";
 import "../../pages/wingo/game.css";
-
 const Index = () => {
   const [balance, setBalance] = useState(35131468.36);
   const [currentBets, setCurrentBets] = useState({});
   const [gameResults, setGameResults] = useState([]);
   const [timeRemaining, setTimeRemaining] = useState(34);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
-  const [activeTab, setActiveTab] = useState("1min");
+  const [activeTab, setActiveTab] = useState("game");            
+  //   const [activeTab, setActiveTab] = useState("1min");
+  const [bettingHistory] = useState([
+      {
+      period: '202506050731',
+      time: '07:31:00',
+      betType: 'green',
+      amount: 250.00,
+      status: 'success'
+    },
+    {
+      period: '202506050730',
+      time: '07:30:00',
+      betType: 'red',
+      amount: -100.00,
+      status: 'failed'
+    },
+    {
+      period: '202506050729',
+      time: '07:29:00',
+      betType: 'number-5',
+      amount: 450.00,
+      status: 'success'
+    },
+    {
+      period: '202506050728',
+      time: '07:28:00',
+      betType: 'big',
+      amount: -200.00,
+      status: 'failed'
+    },
+    {
+      period: '202506050727',
+      time: '07:27:00',
+      betType: 'violet',
+      amount: 675.00,
+      status: 'success'
+    },
+    {
+      period: '202506050726',
+      time: '07:26:00',
+      betType: 'small',
+      amount: -150.00,
+      status: 'failed'
+    },
+    {
+      period: '202506050725',
+      time: '07:25:00',
+      betType: 'number-3',
+      amount: 540.00,
+      status: 'success'
+    },
+    {
+      period: '202506050724',
+      time: '07:24:00',
+      betType: 'green',
+      amount: -300.00,
+      status: 'failed'
+    },
+    {
+      period: '202506050723',
+      time: '07:23:00',
+      betType: 'red',
+      amount: 200.00,
+      status: 'success'
+    },
+    {
+      period: '202506050722',
+      time: '07:22:00',
+      betType: 'big',
+      amount: -100.00,
+      status: 'failed'
+    },
+    {
+      period: '202506050721',
+      time: '07:21:00',
+      betType: 'number-7',
+      amount: 810.00,
+      status: 'success'
+    },
+    {
+      period: '202506050720',
+      time: '07:20:00',
+      betType: 'violet',
+      amount: -225.00,
+      status: 'failed'
+    }
+  ]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -174,12 +260,13 @@ const Index = () => {
             onBet={placeBet}
             currentBets={currentBets}
           />
-
         </>
-        
       )}
-
-      <GameHistory results={gameResults} show={activeTab === "history"} />
+ <GameHistory 
+        results={gameResults}
+        show={activeTab === 'history'}
+        bettingHistory={bettingHistory}
+      />
     </div>
   );
 };

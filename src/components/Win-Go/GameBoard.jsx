@@ -72,12 +72,4 @@ const GameBoard = () => {
   );
 };
 
-// const getNumberColors = (number) => {
-//   if (number === 0) return ['red', 'violet'];
-//   if (number === 5) return ['green', 'violet'];
-//   if ([1, 3, 7, 9].includes(number)) return ['green'];
-//   if ([2, 4, 6, 8].includes(number)) return ['red'];
-//   return ['gray'];
-// };
-
 export default GameBoard;

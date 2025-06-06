@@ -1,10 +1,27 @@
 
 import React, { useState } from 'react';
 
-const GameHistory = ({ results, show }) => {
+const GameHistory = ({ results, bettingHistory = [] }) => {
   const [activeHistoryTab, setActiveHistoryTab] = useState('game-history');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
-  if (!show && activeHistoryTab === 'game-history') return null;
+  // Calculate pagination for betting history
+  const totalPages = Math.ceil(bettingHistory.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentBettingHistory = bettingHistory.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div className="game-history">
@@ -34,7 +51,7 @@ const GameHistory = ({ results, show }) => {
           <div className="history-header">
             <span>Period</span>
             <span>Number</span>
-            <span>Big Small</span>
+            <span>Big/Small</span>
             <span>Color</span>
           </div>
           {results.map((result) => (
@@ -82,9 +99,68 @@ const GameHistory = ({ results, show }) => {
 
       {activeHistoryTab === 'my-history' && (
         <div className="my-history-content">
-          <div className="no-bets">
-            <p>No betting history found</p>
-          </div>
+          {bettingHistory.length === 0 ? (
+            <div className="no-bets">
+              <p>No betting history found</p>
+            </div>
+          ) : (
+            <>
+              <div className="betting-history-list">
+                {currentBettingHistory.map((bet, index) => (
+                  
+                  <div key={index} className="betting-history-item">
+                    <div className="bet-info">
+                      <div className={`bet-type-icon ${bet.betType.includes('green') ? 'green' : bet.betType.includes('red') ? 'red' : bet.betType.includes('violet') ? 'violet' : bet.betType.includes('big') ? 'big' : 'small'}`}>
+                        {bet.betType.includes('number-') ? bet.betType.split('-')[1] : 
+                         bet.betType.includes('green') ? 'big' :
+                         bet.betType.includes('red') ? '9' : 
+                         bet.betType.includes('violet') ? '6' :
+                         bet.betType.includes('big') ? '2' : '0'}
+                      </div>
+                      <div className="bet-details">
+                        <div className="bet-period">{bet.period}</div>
+                        <div className="bet-time">{bet.time}</div>
+                      </div>
+                    </div>
+                    <div className="bet-result">
+                      <span className={`bet-status ${bet.status}`}>
+                        {bet.status}
+                      </span>
+
+
+                      <div className={`bet-amount ${bet.status === 'success' ? 'positive' : 'negative'}`}>
+                        {bet.status === 'success' ? '+' : '-'}₹{Math.abs(bet.amount).toFixed(2)}
+                      </div>
+
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+              
+              {totalPages > 1 && (
+                <div className="pagination">
+                  <button 
+                    className="pagination-btn" 
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                  >
+                    &lt;
+                  </button>
+                  <span className="pagination-info">
+                    {currentPage} / {totalPages}
+                  </span>
+                  <button 
+                    className="pagination-btn" 
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                  >
+                    &gt;
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       )}
     </div>
