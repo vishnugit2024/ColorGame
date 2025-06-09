@@ -12,12 +12,19 @@ import Activity from "./pages/Activity/Activity";
 import Wallet from "./pages/Wallet/Wallet";
 import Account from "./pages/Account/Account";
 import BottomNav from "./components/BottomBar/BottomNav";
+
 import Deposite from "./pages/Deposite/Deposite";
 import Withdraw from "./pages/Withdraw/Withdraw";
 import Addbank from "./pages/Withdraw/Addbank";
 import BetHistory from "./pages/BetHistory/BetHistory";
+
 import DepositHistory from "./pages/DepositHistory/DepositHistory";
 import WithdrawHistory from "./pages/WithdrawHistory/WithdrawHistory";
+
+
+import WingoMain from "./pages/wingo/wingomain";
+
+
 const App = () => {
   return (
     <>
@@ -37,6 +44,7 @@ const App = () => {
           <Route path="/betHistory" element={<BetHistory />} />
           <Route path="/depositHistory" element={<DepositHistory />} />
           <Route path="/withdrawHistory" element={<WithdrawHistory />} />
+          <Route path="/wingo" element={<WingoMain />} />
         </Routes>
         <BottomNav />
       </div>
