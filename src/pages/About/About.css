@@ -1,0 +1,50 @@
+.about-container {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.about-banner {
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  text-align: center;
+}
+
+.about-img {
+  width: 80%;
+}
+
+.about-list {
+  padding: 20px 15px;
+}
+
+.about-card {
+  display: flex;
+  align-items: center;
+  background-color: #3c2d98;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  color: white;
+}
+
+.about-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gold;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.about-arrow {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
