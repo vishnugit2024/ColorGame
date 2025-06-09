@@ -17,6 +17,7 @@ import Withdraw from "./pages/Withdraw/Withdraw";
 import Addbank from "./pages/Withdraw/Addbank";
 import BetHistory from "./pages/BetHistory/BetHistory";
 import DepositHistory from "./pages/DepositHistory/DepositHistory";
+import WithdrawHistory from "./pages/WithdrawHistory/WithdrawHistory";
 const App = () => {
   return (
     <>
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/addbank" element={<Addbank />} />
           <Route path="/betHistory" element={<BetHistory />} />
           <Route path="/depositHistory" element={<DepositHistory />} />
+          <Route path="/withdrawHistory" element={<WithdrawHistory />} />
         </Routes>
         <BottomNav />
       </div>
