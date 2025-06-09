@@ -1,0 +1,61 @@
+.deposit-history-container {
+  padding: 10px;
+  background-color: #1a0e4b;
+  color: white;
+  font-family: sans-serif;
+}
+
+.deposit-history-container .deposit-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #3f279e;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.deposit-history-container .deposit-header {
+  background: linear-gradient(to right, #a051d8, #5f51d6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.deposit-history-container .deposit-btn {
+  background-color: #20d289;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.deposit-history-container .deposit-status {
+  background-color: #f57cd3;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.deposit-history-container .deposit-info {
+  padding: 15px;
+  background-color: #2d1974;
+}
+
+.deposit-history-container .deposit-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.deposit-history-container .order-no {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.deposit-history-container .copy-icon {
+  width: 14px;
+  height: 14px;
+}

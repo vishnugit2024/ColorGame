@@ -123,7 +123,7 @@ const Account = () => {
                   {/* REPLACE with your actual deposit history icon path */}
                 </div>
               </Link>
-              <Link>
+              <Link to={"/depositHistory"}>
                 <div className="card-text">
                   <span className="card-title">Deposit</span>
                   <span className="card-subtitle">My deposit history</span>
@@ -148,15 +148,6 @@ const Account = () => {
         </section>
 
         <section className="menu-list">
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="bi bi-gift-fill"></i>{" "}
-              {/* REPLACE with your actual gifts icon path */}
-            </div>
-            <span className="menu-text">Gifts</span>
-
-            {/* REPLACE with your actual arrow icon path */}
-          </div>
           <div className="menu-item">
             <div className="menu-icon">
               <i className="bi bi-key-fill"></i>
