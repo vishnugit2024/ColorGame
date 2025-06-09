@@ -18,7 +18,12 @@ import Withdraw from "./pages/Withdraw/Withdraw";
 import Addbank from "./pages/Withdraw/Addbank";
 import BetHistory from "./pages/BetHistory/BetHistory";
 
+import DepositHistory from "./pages/DepositHistory/DepositHistory";
+import WithdrawHistory from "./pages/WithdrawHistory/WithdrawHistory";
+
+
 import WingoMain from "./pages/wingo/wingomain";
+
 
 const App = () => {
   return (
@@ -33,14 +38,13 @@ const App = () => {
           <Route path="/activity" element={<Activity />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/account" element={<Account />} />
-
           <Route path="/deposit" element={<Deposite />} />
           <Route path="/withdraw" element={<Withdraw />} />
           <Route path="/addbank" element={<Addbank />} />
           <Route path="/betHistory" element={<BetHistory />} />
-
+          <Route path="/depositHistory" element={<DepositHistory />} />
+          <Route path="/withdrawHistory" element={<WithdrawHistory />} />
           <Route path="/wingo" element={<WingoMain />} />
-
         </Routes>
         <BottomNav />
       </div>

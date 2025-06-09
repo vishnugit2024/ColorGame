@@ -1,0 +1,47 @@
+.withdraw-history-container {
+  padding: 10px;
+  color: white;
+  margin-top: 1rem;
+}
+
+.withdraw-history-container .withdraw-history-card {
+  overflow: hidden;
+  background-color: #2d1974;
+  margin-bottom: 15px;
+}
+
+.withdraw-history-container .withdraw-history-header {
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.withdraw-history-container .withdraw-history-btn {
+  background-color: #20d289;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.withdraw-history-container .withdraw-history-status {
+  font-size: 12px;
+}
+
+.withdraw-history-container .withdraw-history-info {
+  padding: 10px;
+}
+
+.withdraw-history-container .withdraw-history-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.withdraw-history-container .order-no {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

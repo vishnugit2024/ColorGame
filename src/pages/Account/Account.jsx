@@ -117,13 +117,13 @@ const Account = () => {
           </div>
           <div className="history-row">
             <div className="history-card">
-              <Link>
+              <Link to={"/depositHistory"}>
                 <div className="card-icon deposit-history-bg">
                   <img src={accountdeposite1} alt="Deposit" />{" "}
                   {/* REPLACE with your actual deposit history icon path */}
                 </div>
               </Link>
-              <Link>
+              <Link to={"/depositHistory"}>
                 <div className="card-text">
                   <span className="card-title">Deposit</span>
                   <span className="card-subtitle">My deposit history</span>
@@ -131,13 +131,13 @@ const Account = () => {
               </Link>
             </div>
             <div className="history-card">
-              <Link>
+              <Link to={"/withdrawHistory"}>
                 <div className="card-icon withdraw-history-bg">
                   <img src={accountwallet1} alt="Withdraw" />{" "}
                   {/* REPLACE with your actual withdraw history icon path */}
                 </div>
               </Link>
-              <Link>
+              <Link to={"/withdrawHistory"}>
                 <div className="card-text">
                   <span className="card-title">Withdraw</span>
                   <span className="card-subtitle">My withdraw history</span>
@@ -148,15 +148,6 @@ const Account = () => {
         </section>
 
         <section className="menu-list">
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="bi bi-gift-fill"></i>{" "}
-              {/* REPLACE with your actual gifts icon path */}
-            </div>
-            <span className="menu-text">Gifts</span>
-
-            {/* REPLACE with your actual arrow icon path */}
-          </div>
           <div className="menu-item">
             <div className="menu-icon">
               <i className="bi bi-key-fill"></i>
