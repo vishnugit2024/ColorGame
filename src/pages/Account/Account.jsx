@@ -85,7 +85,7 @@ const Account = () => {
           </div>
         </section>
 
-        <section className="history-sections">
+        <section className="account-history-sections">
           <div className="history-row">
             <div className="history-card">
               <Link to="/betHistory">

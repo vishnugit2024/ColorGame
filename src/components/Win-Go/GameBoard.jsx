@@ -16,7 +16,7 @@ const numberImageUrls = {
 const GameBoard = ({ onBetClick }) => {
   return (
     <div className="game-board">
-      <div className="game-title"></div>
+      <div className="wingame-title"></div>
       <div className="number-grid">
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
           <div key={number} className="number-image-item">

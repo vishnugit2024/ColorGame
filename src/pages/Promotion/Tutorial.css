@@ -1,0 +1,42 @@
+.referral-wrapper {
+  background-color: #27166b;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 450px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.referral-header {
+  display: flex;
+  background: linear-gradient(to right, #764ba2, #a044ff);
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.referral-left-header,
+.referral-right-header {
+  width: 50%;
+  padding: 12px 0;
+}
+
+.referral-body {
+  background-color: #2e1d74;
+  padding: 8px 0;
+}
+
+.referral-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #3c2b8c;
+  padding: 8px 20px;
+  font-size: 15px;
+}
+
+.referral-left,
+.referral-right {
+  width: 50%;
+}

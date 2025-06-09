@@ -32,7 +32,7 @@
   color: #333;
   text-align: start;
 }
-.balance-amount {
+.wingo-balance-amount {
   font-size: 20px;
   font-weight: 700;
   color: #333;
@@ -65,7 +65,7 @@
 .deposit-2 {
   background: linear-gradient(to bottom, #ffc36a, #fff38a);
   color: #8f5206;
-  border:  solid #8f5206;
+  border: solid #8f5206;
 }
 .withdraw-1:hover,
 .deposit-2:hover {
@@ -145,9 +145,9 @@
   cursor: pointer;
   margin-bottom: 4px;
   font-weight: 400;
-  border: .1px solid #8f5206;
+  border: 0.1px solid #8f5206;
 }
-.game-title {
+.wingo-game-title {
   font-weight: 700;
   font-size: 14px;
   margin-left: 5px;
@@ -436,7 +436,7 @@
   text-transform: capitalize;
   opacity: 0.9;
 }
-.selection-text{
+.selection-text {
   background: white;
   color: #333;
   padding: 10px 20px;
@@ -451,11 +451,11 @@
 .modal-content {
   padding: 20px;
 }
-.balance-section,
+.balance-section-2,
 .quantity-section {
   margin-bottom: 20px;
 }
-.balance-section span,
+.balance-section-2 span,
 .quantity-section span {
   display: block;
   margin-bottom: 10px;
@@ -888,7 +888,7 @@
 }
 /* history css ended */
 /* bet panel change color dynamically css here */
-.modal-header h3{
+.modal-header h3 {
   padding: 12px 20px;
   border-radius: 10px 10px 0 0;
   color: white;
@@ -1091,8 +1091,14 @@
   color: white;
 }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ye dono me green red and violet and jo small and big ka popup hai uske liye */
@@ -1135,4 +1141,3 @@
   font-size: 14px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-
