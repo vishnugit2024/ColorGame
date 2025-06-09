@@ -21,6 +21,13 @@ import BetHistory from "./pages/BetHistory/BetHistory";
 import DepositHistory from "./pages/DepositHistory/DepositHistory";
 import WithdrawHistory from "./pages/WithdrawHistory/WithdrawHistory";
 
+import Support from "./pages/Support/Support";
+import SubmitIssue from "./pages/SubmitIssue/SubmitIssue";
+import About from "./pages/About/About";
+import ConfidentialityAgreement from "./pages/About/ConfidentialityAgreement";
+import RiskDisclosureAgreement from "./pages/About/RiskDisclosureAgreement";
+
+
 
 import WingoMain from "./pages/wingo/wingomain";
 
@@ -44,7 +51,15 @@ const App = () => {
           <Route path="/betHistory" element={<BetHistory />} />
           <Route path="/depositHistory" element={<DepositHistory />} />
           <Route path="/withdrawHistory" element={<WithdrawHistory />} />
+
+          <Route path="/support" element={<Support />} />
+          <Route path="/submitIssue" element={<SubmitIssue />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/confidentialityAgreement" element={<ConfidentialityAgreement />} />
+          <Route path="/riskDisclosureAgreement" element={<RiskDisclosureAgreement />} />
+
           <Route path="/wingo" element={<WingoMain />} />
+
         </Routes>
         <BottomNav />
       </div>

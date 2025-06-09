@@ -148,31 +148,34 @@ const Account = () => {
         </section>
 
         <section className="menu-list">
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="bi bi-key-fill"></i>
-              {/* REPLACE with your actual change password icon path */}
+          <Link to={"/forget-Password"} className="text-decoration-none">
+            <div className="menu-item">
+              <div className="menu-icon">
+                <i className="bi bi-key-fill"></i>
+              </div>
+              <span className="menu-text">Change Password</span>
             </div>
-            <span className="menu-text">Change Password</span>
+          </Link>
+          <Link to={"/support"} className="text-decoration-none">
+            <div className="menu-item">
+              <div className="menu-icon">
+                <i className="bi bi-chat-square-dots-fill"></i>
+                {/* REPLACE with your actual customer support icon path */}
+              </div>
+              <span className="menu-text">Customer Support Online 24/7</span>
 
-            {/* REPLACE with your actual arrow icon path */}
-          </div>
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="bi bi-chat-square-dots-fill"></i>
-              {/* REPLACE with your actual customer support icon path */}
+              {/* REPLACE with your actual arrow icon path */}
             </div>
-            <span className="menu-text">Customer Support Online 24/7</span>
-
-            {/* REPLACE with your actual arrow icon path */}
-          </div>
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="bi bi-box"></i>{" "}
-              {/* REPLACE with your actual about icon path */}
+          </Link>
+          <Link to={"/about"} className="text-decoration-none">
+            <div className="menu-item">
+              <div className="menu-icon">
+                <i className="bi bi-box"></i>{" "}
+                {/* REPLACE with your actual about icon path */}
+              </div>
+              <span className="menu-text">About</span>
             </div>
-            <span className="menu-text">About</span>
-          </div>
+          </Link>
           <div className="menu-item">
             <div className="menu-icon">
               <i className="bi bi-gear-wide-connected"></i>{" "}
