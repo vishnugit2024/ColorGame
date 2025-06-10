@@ -15,17 +15,21 @@ const levels = [
 ];
 
 const Tutorial = () => {
-   return (
-    <div className="referral-wrapper">
-      <div className="referral-header">
-        <div className="referral-left-header">New Referral</div>
-        <div className="referral-right-header">Bet Commission</div>
+  return (
+    <div className="tutorial-referral-wrapper">
+      <div className="tutorial-referral-header">
+        <div className="tutorial-referral-left-header">New Referral</div>
+        <div className="tutorial-referral-right-header">Bet Commission</div>
       </div>
-      <div className="referral-body">
+      <div className="tutorial-referral-body">
         {levels.map((item, index) => (
-          <div className="referral-row" key={index}>
-            <div className="referral-left">Level {item.level} = {item.referral}</div>
-            <div className="referral-right">Level {item.level} = {item.commission}</div>
+          <div className="tutorial-referral-row" key={index}>
+            <div className="tutorial-referral-left">
+              Level {item.level} = {item.referral}
+            </div>
+            <div className="tutorial-referral-right">
+              Level {item.level} = {item.commission}
+            </div>
           </div>
         ))}
       </div>

@@ -141,17 +141,14 @@
   margin: 20px 0;
 }
 
-.account-history-sections .history-row {
+.account-history-sections .account-history-row {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
-.account-history-sections .history-card a {
-  text-decoration: none;
-}
 
-.account-history-sections .history-card {
+.account-history-sections .account-history-card {
   background-color: rgb(60, 45, 152);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -160,6 +157,10 @@
   padding: 10px;
   flex: 1;
   cursor: pointer;
+}
+
+.account-history-sections .account-history-card a {
+  text-decoration: none;
 }
 
 .account-history-sections .card-icon {
