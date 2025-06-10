@@ -101,13 +101,13 @@ const Account = () => {
               </Link>
             </div>
             <div className="account-history-card">
-              <Link>
+              <Link to={"/transcationHistory"}>
                 <div className="card-icon transaction-bg">
                   <img src={accounttransition} alt="Transaction" />{" "}
                   {/* REPLACE with your actual transaction icon path */}
                 </div>
               </Link>
-              <Link>
+              <Link to={"/transcationHistory"}>
                 <div className="card-text">
                   <span className="card-title">Transaction</span>
                   <span className="card-subtitle">My transaction history</span>
