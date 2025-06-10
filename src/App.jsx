@@ -30,6 +30,7 @@ import RiskDisclosureAgreement from "./pages/About/RiskDisclosureAgreement";
 import WingoMain from "./pages/wingo/wingomain";
 import ReferralCommission from "./pages/Promotion/ReferralCommission";
 import Tutorial from "./pages/Promotion/tutorial";
+import TranscationHistory from "./pages/TranscationHistory/TranscationHistory";
 
 const App = () => {
   return (
@@ -62,6 +63,7 @@ const App = () => {
             path="/riskDisclosureAgreement"
             element={<RiskDisclosureAgreement />}
           />
+          <Route path="/transcationHistory" element={<TranscationHistory />} />
           <Route path="/referralCommission" element={<ReferralCommission />} />
           <Route path="/tutorial" element={<Tutorial />} />
 
