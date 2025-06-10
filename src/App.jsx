@@ -27,10 +27,9 @@ import About from "./pages/About/About";
 import ConfidentialityAgreement from "./pages/About/ConfidentialityAgreement";
 import RiskDisclosureAgreement from "./pages/About/RiskDisclosureAgreement";
 
-
-
 import WingoMain from "./pages/wingo/wingomain";
-
+import ReferralCommission from "./pages/Promotion/ReferralCommission";
+import Tutorial from "./pages/Promotion/tutorial";
 
 const App = () => {
   return (
@@ -55,11 +54,18 @@ const App = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/submitIssue" element={<SubmitIssue />} />
           <Route path="/about" element={<About />} />
-          <Route path="/confidentialityAgreement" element={<ConfidentialityAgreement />} />
-          <Route path="/riskDisclosureAgreement" element={<RiskDisclosureAgreement />} />
+          <Route
+            path="/confidentialityAgreement"
+            element={<ConfidentialityAgreement />}
+          />
+          <Route
+            path="/riskDisclosureAgreement"
+            element={<RiskDisclosureAgreement />}
+          />
+          <Route path="/referralCommission" element={<ReferralCommission />} />
+          <Route path="/tutorial" element={<Tutorial />} />
 
           <Route path="/wingo" element={<WingoMain />} />
-
         </Routes>
         <BottomNav />
       </div>

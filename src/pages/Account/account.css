@@ -87,6 +87,8 @@
 }
 
 .balance-amount {
+  display: flex;
+  gap: 10px;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -134,22 +136,19 @@
 }
 
 /* History Sections (mostly same as before) */
-.history-sections {
+.account-history-sections {
   padding: 0 15px;
   margin: 20px 0;
 }
 
-.history-row {
+.account-history-sections .account-history-row {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
 }
-.history-card a {
-  text-decoration: none;
-}
 
-.history-card {
+.account-history-sections .account-history-card {
   background-color: rgb(60, 45, 152);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -160,7 +159,11 @@
   cursor: pointer;
 }
 
-.card-icon {
+.account-history-sections .account-history-card a {
+  text-decoration: none;
+}
+
+.account-history-sections .card-icon {
   width: 50px;
   height: 50px;
   display: flex;
@@ -169,23 +172,23 @@
   flex-shrink: 0;
 }
 
-.card-icon img {
+.account-history-sections .card-icon img {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
 
-.card-text {
+.account-history-sections .card-text {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.card-title {
+.account-history-sections .card-title {
   color: #fff;
 }
 
-.card-subtitle {
+.account-history-sections .card-subtitle {
   font-size: 0.75em;
   color: #cac5c5;
 }

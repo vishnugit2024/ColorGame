@@ -39,7 +39,7 @@ const Account = () => {
           <div className="balance-header">
             <span className="total-balance-label">Total balance</span>
             <div className="balance-amount">
-              ₹2509.36{" "}
+              ₹250999.36{" "}
               <span>
                 <i className="bi bi-shuffle"></i>
               </span>
@@ -85,9 +85,9 @@ const Account = () => {
           </div>
         </section>
 
-        <section className="history-sections">
-          <div className="history-row">
-            <div className="history-card">
+        <section className="account-history-sections">
+          <div className="account-history-row">
+            <div className="account-history-card">
               <Link to="/betHistory">
                 <div className="card-icon">
                   <img src={accountbet} alt="Bet" />{" "}
@@ -100,7 +100,7 @@ const Account = () => {
                 </div>
               </Link>
             </div>
-            <div className="history-card">
+            <div className="account-history-card">
               <Link>
                 <div className="card-icon transaction-bg">
                   <img src={accounttransition} alt="Transaction" />{" "}
@@ -115,8 +115,8 @@ const Account = () => {
               </Link>
             </div>
           </div>
-          <div className="history-row">
-            <div className="history-card">
+          <div className="account-history-row">
+            <div className="account-history-card">
               <Link to={"/depositHistory"}>
                 <div className="card-icon deposit-history-bg">
                   <img src={accountdeposite1} alt="Deposit" />{" "}
@@ -130,7 +130,7 @@ const Account = () => {
                 </div>
               </Link>
             </div>
-            <div className="history-card">
+            <div className="account-history-card">
               <Link to={"/withdrawHistory"}>
                 <div className="card-icon withdraw-history-bg">
                   <img src={accountwallet1} alt="Withdraw" />{" "}
