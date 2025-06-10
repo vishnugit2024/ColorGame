@@ -21,6 +21,12 @@ const TranscationHistory = () => {
     <div className="transaction-container">
       <select className="filter-dropdown">
         <option>Filter</option>
+        <option>Win</option>
+        <option>Daily Mission</option>
+        <option>Bet</option>
+        <option>Deposite</option>
+        <option>Withdraw</option>
+        <option>Bonus</option>
       </select>
 
       {transactions.map((txn) => (
