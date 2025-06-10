@@ -39,7 +39,7 @@ const Account = () => {
           <div className="balance-header">
             <span className="total-balance-label">Total balance</span>
             <div className="balance-amount">
-              ₹2509.36{" "}
+              ₹250999.36{" "}
               <span>
                 <i className="bi bi-shuffle"></i>
               </span>
