@@ -46,13 +46,13 @@ const Wallet = () => {
               <p>Deposit</p>
             </div>
           </Link>
-          <Link>
+          <Link to={"/withdraw"}>
             <div className="action-item">
               <img src={walletwithdraw} alt="Withdraw" />
               <p>Withdraw</p>
             </div>
           </Link>
-          <Link>
+          <Link to={"/depositHistory"}>
             <div className="action-item">
               <img src={walletdepositehistroy} alt="Deposit History" />
               <p>
@@ -62,7 +62,7 @@ const Wallet = () => {
               </p>
             </div>
           </Link>
-          <Link>
+          <Link to={"/withdrawHistory"}>
             <div className="action-item">
               <img src={walletwithdrawhistory} alt="Withdrawal History" />
               <p>

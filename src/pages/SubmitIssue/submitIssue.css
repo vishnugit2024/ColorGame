@@ -1,0 +1,66 @@
+.submitIssue-container {
+  padding: 0 20px;
+  margin: auto;
+  color: white;
+}
+
+.submitIssue-form {
+  margin-top: 20px;
+}
+
+.submitIssue-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
+
+.submitIssue-container .dot {
+  width: 5px;
+  height: 25px;
+  background-color: #ffdc5c;
+  margin-right: 8px;
+}
+
+.submitIssue-form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.submitIssue-form-group i {
+  color: var(--cream-color, #fdf6e3);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.submitIssue-control {
+  background-color: #4c39d1;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.submitIssue-control:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #4c39d1;
+  color: #fff;
+}
+
+.submitIssue-control::placeholder {
+  color: #fff;
+}
+
+.submitIssue-save-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #5d51d6, #aa51d9);
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}

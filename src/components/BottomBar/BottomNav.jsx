@@ -20,7 +20,7 @@ export default function BottomNav() {
         <img src={activityIcon} alt="Activity" className="nav-icon" />
         <span className="nav-label">Activity</span>
       </Link>
-      <Link to="/promotion" className="nav-item promotion-item">
+      <Link to="/referralCommission" className="nav-item promotion-item">
         <div className="promotion-circle">
           <img src={promoIcon} alt="Promotion" />
         </div>

@@ -1,0 +1,39 @@
+.tutorial-referral-wrapper {
+  color: white;
+  margin-top: 30px;
+  margin-inline: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tutorial-referral-header {
+  display: flex;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tutorial-referral-left-header,
+.tutorial-referral-right-header {
+  width: 50%;
+  padding: 12px 0;
+  background-image: linear-gradient(to right, #5f51d6 0%, #a251d8 100%);
+}
+
+.tutorial-referral-body {
+  background-color: rgb(60, 45, 152);
+  padding: 8px 0;
+  text-align: center;
+}
+
+.tutorial-referral-row {
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 1px solid #3c2b8c; */
+  padding: 5px 20px;
+  font-size: 13px;
+}
+
+.tutorial-referral-left,
+.tutorial-referral-right {
+  width: 50%;
+}

@@ -14,7 +14,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="bank">
-              <i class="bi bi-bank"></i>
+              <i className="bi bi-bank"></i>
             </span>{" "}
             Choose a bank
           </label>
@@ -77,7 +77,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="user">
-              <i class="bi bi-person-fill"></i>
+              <i className="bi bi-person-fill"></i>
             </span>{" "}
             Full recipient’s name
           </label>
@@ -91,7 +91,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="card">
-              <i class="bi bi-credit-card-2-back-fill"></i>
+              <i className="bi bi-credit-card-2-back-fill"></i>
             </span>{" "}
             Bank account number
           </label>
@@ -105,7 +105,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="phone">
-              <i class="bi bi-phone-fill"></i>
+              <i className="bi bi-phone-fill"></i>
             </span>{" "}
             Phone number
           </label>
@@ -119,7 +119,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="email">
-              <i class="bi bi-envelope-arrow-down-fill"></i>
+              <i className="bi bi-envelope-arrow-down-fill"></i>
             </span>{" "}
             Mail
           </label>
@@ -133,7 +133,7 @@ const Addbank = () => {
         <div className="form-group">
           <label>
             <span aria-label="key">
-              <i class="bi bi-key-fill"></i>
+              <i className="bi bi-key-fill"></i>
             </span>{" "}
             IFSC Code
           </label>

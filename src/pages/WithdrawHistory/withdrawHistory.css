@@ -8,6 +8,7 @@
   overflow: hidden;
   background-color: #2d1974;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 .withdraw-history-container .withdraw-history-header {

@@ -4,7 +4,7 @@ import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 import GameBoard from "../../components/Win-Go/GameBoard";
 import BettingPanel from "../../components/Win-Go/BettingPanel";
 import GameHistory from "../../components/Win-Go/GameHistory";
-import "../../pages/wingo/game.css";
+import "./game.css";
 const Index = () => {
   const [balance, setBalance] = useState(35131468.36);
   const [currentBets, setCurrentBets] = useState({});
@@ -187,7 +187,7 @@ const Index = () => {
             <span className="balance-label">
               <i className="bi bi-envelope"></i> Wallet balance
             </span>
-            <span className="balance-amount">
+            <span className="wingo-balance-amount">
               ₹{balance.toFixed(2)} <FontAwesomeIcon icon={faSyncAlt} />
             </span>
           </div>
@@ -277,7 +277,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-
       )}
 
       {/* popup timer end */}
