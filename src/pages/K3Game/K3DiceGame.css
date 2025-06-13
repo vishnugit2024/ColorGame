@@ -101,4 +101,103 @@
   border-radius: 20px;
   margin-top: 15px;
   overflow: hidden;
+  padding: 15px;
 }
+
+.game-play-head .period-text {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+}
+
+.game-play-head .period-text button {
+  all: unset;
+  background: transparent;
+  border: 1px solid red;
+  color: red;
+  border-radius: 5rem;
+  padding: 3px 40px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.game-number-timing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.game-number-timing h5 {
+  font-weight: 600;
+}
+
+.k3-game-play-section .three-dice-animation {
+  background: #ffdb7a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.three-dice-animation .three-dice-inner {
+  background: #8f5206;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.three-dice-animation .three-dice-inner .dice-1 {
+  background: #000;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.three-dice-inner .dice-1 .dice-img {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+}
+
+
+.k3-ball-select-tab-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.ball-tab-select {
+  flex: 1;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Active (selected) tab styling */
+.ball-tab-select.active-tab {
+  background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  color: #8f5206;
+}
+
+/* Inactive (not selected) tab styling */
+.ball-tab-select.inactive-tab {
+  color: #f0f0f0;
+  background: gray;
+}
+
+
