@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import dice1 from "../../assets/diceFront1.png";
 import dice2 from "../../assets/diceFront2.png";
 import dice5 from "../../assets/diceFront5.png";
+import redball from "../../assets/k3gameball.png";
+import greenball from "../../assets/kmgameballgreen.png";
 
 const K3DiceGame = () => {
   const timeOptions = [
@@ -15,7 +17,31 @@ const K3DiceGame = () => {
     { label: "10Min", key: "10" },
   ];
 
+  const numberOptions = [
+    { number: 3, color: "red", multiplier: "207.36X" },
+    { number: 4, color: "green", multiplier: "69.12X" },
+    { number: 5, color: "red", multiplier: "34.56X" },
+    { number: 6, color: "green", multiplier: "20.74X" },
+    { number: 7, color: "red", multiplier: "13.83X" },
+    { number: 8, color: "green", multiplier: "9.88X" },
+    { number: 9, color: "red", multiplier: "8.3X" },
+    { number: 10, color: "green", multiplier: "7.68X" },
+    { number: 11, color: "red", multiplier: "7.68X" },
+    { number: 12, color: "green", multiplier: "8.3X" },
+    { number: 13, color: "green", multiplier: "9.88X" },
+    { number: 14, color: "green", multiplier: "13.83X" },
+    { number: 15, color: "red", multiplier: "20.74X" },
+    { number: 16, color: "green", multiplier: "34.56X" },
+    { number: 17, color: "red", multiplier: "69.12X" },
+    { number: 18, color: "green", multiplier: "207.36X" },
+  ];
+
   const tabOptions = ["Total", "2 same", "3 same", "Different"];
+
+  const matchingPairs = ["11", "22", "33", "44", "55", "66"];
+  const uniquePairs = ["11", "22", "33", "44", "55", "66"];
+  const uniqueSingles = ["1", "2", "3", "4", "5", "6"];
+  const tripleNumbers = ["111", "222", "333", "444", "555", "666"];
 
   const [selected, setSelected] = useState("1");
   const [activeTab, setActiveTab] = useState("Total");
@@ -92,25 +118,151 @@ const K3DiceGame = () => {
               </div>
             </div>
           </div>
-        </div>
+          <div className="k3-ball-select-tab-sections">
+            {tabOptions.map((tab) => (
+              <div
+                key={tab}
+                className={`ball-tab-select ${
+                  activeTab === tab ? "active-tab" : "inactive-tab"
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </div>
+            ))}
+          </div>
+          {activeTab === "Total" && (
+            <div className="k3-tab-change-data py-2 px-1">
+              <div className="k3-number-grid">
+                {numberOptions.map((item) => (
+                  <div className="k3-ball-wrapper" key={item.number}>
+                    <div
+                      className="k3-ball"
+                      style={{
+                        backgroundImage: `url(${
+                          item.color === "red" ? redball : greenball
+                        })`,
+                      }}
+                    >
+                      <span
+                        className={
+                          item.color === "red"
+                            ? "k3-ball-number"
+                            : "k3-ball-number-green"
+                        }
+                      >
+                        {item.number}
+                      </span>
+                    </div>
+                    <div className="k3-multiplier">{item.multiplier}</div>
+                  </div>
+                ))}
+              </div>
 
-        <div className="k3-ball-select-tab-sections">
-          {tabOptions.map((tab) => (
-            <div
-              key={tab}
-              className={`ball-tab-select ${
-                activeTab === tab ? "active-tab" : "inactive-tab"
-              }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
+              {/* Bottom tabs */}
+              <div className="k3-bottom-tabs">
+                <div className="k3-tab orange">
+                  Big
+                  <br />
+                  1.92X
+                </div>
+                <div className="k3-tab blue">
+                  Small
+                  <br />
+                  1.92X
+                </div>
+                <div className="k3-tab red">
+                  Odd
+                  <br />
+                  1.92X
+                </div>
+                <div className="k3-tab green">
+                  Even
+                  <br />
+                  1.92X
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-        <div className="k3-tab-change-data p-1">
-          {activeTab === "Total" && <div>Show Total UI here</div>}
-          {activeTab === "2 same" && <div>Show 2 Same UI here</div>}
-          {activeTab === "3 same" && <div>Show 3 Same UI here</div>}
+          )}
+          {activeTab === "2 same" && (
+            <div className="k3-tab2-wrapper">
+              {/* Matching Numbers */}
+              <div className="k3-tab2-section">
+                <div className="k3-tab2-title">
+                  2 matching numbers: odds(13.83){" "}
+                  <span className="k3-tab2-tooltip">
+                    <i class="bi bi-question-lg"></i>
+                  </span>
+                </div>
+                <div className="k3-tab2-grid">
+                  {matchingPairs.map((num) => (
+                    <div className="k3-tab2-box purple" key={num}>
+                      {num}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Unique Numbers */}
+              <div className="k3-tab2-section">
+                <div className="k3-tab2-title">
+                  A pair of unique numbers: odds(69.12){" "}
+                  <span className="k3-tab2-tooltip">
+                    <i class="bi bi-question-lg"></i>
+                  </span>
+                </div>
+                <div className="k3-tab2-grid">
+                  {uniquePairs.map((num) => (
+                    <div className="k3-tab2-box red" key={num}>
+                      {num}
+                    </div>
+                  ))}
+                </div>
+                <div className="k3-tab2-grid mt-2">
+                  {uniqueSingles.map((num) => (
+                    <div className="k3-tab2-box blue" key={num}>
+                      {num}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          {activeTab === "3 same" && (
+            <div className="k3-tab3-wrapper">
+              {/* Exact 3 of the same number */}
+              <div className="k3-tab3-section">
+                <div className="k3-tab3-title">
+                  3 of the same number: odds(207.36){" "}
+                  <span className="k3-tab3-tooltip">
+                    {" "}
+                    <i class="bi bi-question-lg"></i>
+                  </span>
+                </div>
+                <div className="k3-tab3-grid">
+                  {tripleNumbers.map((num) => (
+                    <div className="k3-tab3-box purple" key={num}>
+                      {num}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Any 3 of the same number */}
+              <div className="k3-tab3-section mt-1">
+                <div className="k3-tab3-title">
+                  Any 3 of the same number: odds(34.56){" "}
+                  <span className="k3-tab3-tooltip">
+                    {" "}
+                    <i class="bi bi-question-lg"></i>
+                  </span>
+                </div>
+                <div className="k3-tab3-any-box">
+                  Any 3 of the same number: odds
+                </div>
+              </div>
+            </div>
+          )}
           {activeTab === "Different" && <div>Show Different UI here</div>}
         </div>
       </section>
