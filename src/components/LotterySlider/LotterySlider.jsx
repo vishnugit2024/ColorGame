@@ -18,17 +18,17 @@ const games = [
   {
     title: "K3",
     image: ludo,
-    link: "/game/k3",
+    link: "/k3DiceGame",
   },
   {
-    title: "Mega Dice",
+    title: "Win Go",
     image: WinGo,
-    link: "/game/mega-dice",
+    link: "/wingo",
   },
   {
     title: "Lucky Ball",
     image: ludo,
-    link: "/game/lucky-ball",
+    link: "/k3DiceGame",
   },
 ];
 

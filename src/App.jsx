@@ -31,6 +31,7 @@ import WingoMain from "./pages/wingo/wingomain";
 import ReferralCommission from "./pages/Promotion/ReferralCommission";
 import Tutorial from "./pages/Promotion/tutorial";
 import TranscationHistory from "./pages/TranscationHistory/TranscationHistory";
+import K3DiceGame from "./pages/K3Game/K3DiceGame";
 
 const App = () => {
   return (
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="/transcationHistory" element={<TranscationHistory />} />
           <Route path="/referralCommission" element={<ReferralCommission />} />
           <Route path="/tutorial" element={<Tutorial />} />
+          <Route path="/k3DiceGame" element={<K3DiceGame />} />
 
           <Route path="/wingo" element={<WingoMain />} />
         </Routes>

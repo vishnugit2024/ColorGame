@@ -1,0 +1,104 @@
+.k3-dice-game-section {
+  padding: 10px;
+}
+
+.k3-dice-game-section .k3-header {
+  background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px auto auto;
+  color: #8f5206;
+}
+
+.k3-dice-game-section .k3-header h5 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.k3-dice-game-section .k3-header h5 span i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.k3-dice-game-section .k3-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #8f5206;
+}
+
+.k3-dice-game-section .k3-header p span i {
+  margin-right: 5px;
+}
+
+.k3-dice-game-section .k3-header .k3header-button {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.k3-dice-game-section .k3-header .k3header-button .withdraw {
+  all: unset;
+  background: #8f5206;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.k3-dice-game-section .k3-header .k3header-button .deposit {
+  all: unset;
+  background: transparent;
+  color: #8f5206;
+  border: 1px solid #8f5206;
+  border-radius: 5px;
+  padding: 3px 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.k3-dice-game-section .k3-game-time-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background: #3c2d98;
+  border-radius: 20px;
+  margin-top: 15px;
+  overflow: hidden;
+  color: gray;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.watch-time-select {
+  text-align: center;
+  flex: 1;
+  padding: 5px;
+  transition: background 0.3s ease;
+  color: gray;
+  font-size: 12px;
+}
+
+.watch-time-select img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.selected-tab {
+  background: #ffdb7a;
+  color: #8f5206;
+}
+.dice-scroll-section {
+  display: none; /* Placeholder for dice scroll section */
+}
+
+.k3-game-play-section {
+  margin: auto;
+  background: #3c2d98;
+  border-radius: 20px;
+  margin-top: 15px;
+  overflow: hidden;
+}
