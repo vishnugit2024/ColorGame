@@ -153,7 +153,7 @@
 }
 
 .three-dice-animation .three-dice-inner .dice-1 {
-  background: #000;
+  background: #333;
   padding: 10px;
   margin: auto;
   display: flex;
@@ -166,7 +166,6 @@
   height: 75px;
   margin: auto;
 }
-
 
 .k3-ball-select-tab-sections {
   display: flex;
@@ -200,4 +199,186 @@
   background: gray;
 }
 
+.k3-number-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-items: center;
+}
 
+.k3-ball-wrapper {
+  text-align: center;
+}
+
+.k3-ball {
+  width: 55px;
+  height: 55px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.k3-ball-number {
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+}
+
+.k3-ball-number-green {
+  font-size: 25px;
+  font-weight: bold;
+  color: green;
+}
+
+.k3-multiplier {
+  margin-top: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+.k3-bottom-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.k3-tab {
+  flex: 1;
+  text-align: center;
+  padding: 3px 0px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+.k3-tab.orange {
+  background-color: #ffa726;
+}
+
+.k3-tab.blue {
+  background-color: #42a5f5;
+}
+
+.k3-tab.red {
+  background-color: #ef5350;
+}
+
+.k3-tab.green {
+  background-color: #66bb6a;
+}
+
+.k3-tab2-wrapper {
+  padding: 10px 0px;
+  color: white;
+}
+
+.k3-tab2-section {
+  margin-bottom: 10px;
+}
+
+.k3-tab2-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #cccccc;
+}
+
+.k3-tab2-tooltip {
+  background-color: red;
+  color: black;
+  font-size: 12px;
+  padding: 0px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.k3-tab2-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.k3-tab2-box {
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.k3-tab2-box.purple {
+  background-color: rgba(182, 89, 254, 0.5);
+  color: white;
+}
+
+.k3-tab2-box.red {
+  background-color: #fb9494;
+  color: #3e1f1f;
+}
+
+.k3-tab2-box.blue {
+  background-color: rgba(64, 173, 114, 0.5);
+  color: white;
+}
+
+.k3-tab3-wrapper {
+  padding: 10px 0px;
+  color: white;
+}
+
+.k3-tab3-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #cccccc;
+}
+
+.k3-tab3-tooltip {
+  background-color: red;
+  color: black;
+  font-size: 12px;
+  padding: 0px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.k3-tab3-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.k3-tab3-box {
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.k3-tab3-box.purple {
+  background-color: rgba(182, 89, 254, 0.5);
+  color: white;
+}
+
+.k3-tab3-any-box {
+  background-color: #fb9494;
+  color: #3e1f1f;
+  padding: 15px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+}
