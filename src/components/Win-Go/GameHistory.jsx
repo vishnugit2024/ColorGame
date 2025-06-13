@@ -91,11 +91,11 @@ const GameHistory = ({ results, bettingHistory = [] }) => {
               <span className="period">{result.period}</span>
               <span className={`number color-${result.colors[0]}`}>{result.number}</span>
               <span className="size">{result.size}</span>
-              <div className="colors">
+              <span className="colors">
                 {result.colors.map((color, i) => (
                   <span key={i} className={`color-dot ${color}`}></span>
                 ))}
-              </div>
+              </span>
             </div>
           ))}
           {renderPagination(gamePage, totalGamePages, setGamePage)}

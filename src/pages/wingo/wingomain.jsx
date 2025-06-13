@@ -5,6 +5,7 @@ import GameBoard from "../../components/Win-Go/GameBoard";
 import BettingPanel from "../../components/Win-Go/BettingPanel";
 import GameHistory from "../../components/Win-Go/GameHistory";
 import "./game.css";
+import { Link } from "react-router-dom";
 const Index = () => {
   const [balance, setBalance] = useState(35131468.36);
   const [currentBets, setCurrentBets] = useState({});
@@ -99,7 +100,7 @@ const Index = () => {
     const startRandomPopup = () => {
       const randomDelay = Math.random() * (15000 - 5000) + 5000;
       randomDelayTimer = setTimeout(() => {
-        setPopupTimer(4);
+        // setPopupTimer(1);
         setShowPopup(true);
       }, randomDelay);
     };
@@ -177,7 +178,7 @@ const Index = () => {
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
+    return `${mins}${mins}:${secs.toString().padStart(2, "0")}`;
   };
   return (
     <div className="game-container">
@@ -185,15 +186,15 @@ const Index = () => {
         <div className="wallet-section">
           <div className="wallet-balance">
             <span className="balance-label">
-              <i className="bi bi-envelope"></i> Wallet balance
+              <i className="bi bi-envelope-fill"></i> Wallet balance
             </span>
             <span className="wingo-balance-amount">
               ₹{balance.toFixed(2)} <FontAwesomeIcon icon={faSyncAlt} />
             </span>
           </div>
           <div className="wallet-actions">
-            <button className="withdraw-1">Withdraw</button>
-            <button className="deposit-2">Deposit</button>
+            <Link to={'/withdraw'} className="withdraw-1">Withdraw</Link>
+            <Link to={'/deposit'} className="deposit-2">Deposit</Link>
           </div>
         </div>
       </header>
@@ -209,7 +210,7 @@ const Index = () => {
           </button>
         ))}
       </nav>
-      <br />
+      {/* <br /> */}
       <div className="info-bar">
         <div className="how-to-play">
           <button className="how-btn">📖 How to play</button>
@@ -225,8 +226,8 @@ const Index = () => {
           </div>
         </div>
         <div className="time-remaining">
-          <div className="label">Time remaining</div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="tm-label">Time remaining</div>
+          <div style={{ display: "flex", alignItems: "center" , justifyContent: "end"}}>
             {formatTime(timeRemaining)
               .split("")
               .map((char, idx) =>
@@ -246,18 +247,20 @@ const Index = () => {
       </div>
       {activeTab && (
         <>
+        <div className="bating-panel-main">
           <BettingPanel
             onPlaceBet={placeBet}
             balance={balance}
             currentBets={currentBets}
             handleBetClick={handleBetClick}
-          />
+            />
           <GameBoard
             onBetClick={handleBetClick}
             gameResults={gameResults}
             onBet={placeBet}
             currentBets={currentBets}
-          />
+            />
+            </div>
         </>
       )}
       <GameHistory results={gameResults} bettingHistory={bettingHistory} />
@@ -295,9 +298,8 @@ const Index = () => {
                   {[1, 10, 100, 1000].map((amount) => (
                     <button
                       key={amount}
-                      className={`balance-btn ${
-                        selectedAmount === amount ? "active" : ""
-                      }`}
+                      className={`balance-btn ${selectedAmount === amount ? "active" : ""
+                        }`}
                       onClick={() => setSelectedAmount(amount)}
                     >
                       {amount}

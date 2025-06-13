@@ -47,7 +47,8 @@ const LotterySlider = () => {
         spaceBetween={16}
         slidesPerView={2}
         loop={true}
-        autoplay={{ delay: 2000 }}
+        // autoplay={{ delay: 2000 }}
+        autoplay={false}
         className="lottery-slider"
       >
         {games.map((game, index) => (
