@@ -10,7 +10,7 @@ const Index = () => {
   const [balance, setBalance] = useState(35131468.36);
   const [currentBets, setCurrentBets] = useState({});
   const [gameResults, setGameResults] = useState([]);
-  const [timeRemaining, setTimeRemaining] = useState(34);
+  const [timeRemaining, setTimeRemaining] = useState(60);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
   const [activeTab, setActiveTab] = useState("1min");
   const [bettingHistory] = useState([
@@ -82,6 +82,7 @@ const Index = () => {
   // popup ke liye timer state start
   const [popupTimer, setPopupTimer] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeRemaining((prev) => {
@@ -98,12 +99,13 @@ const Index = () => {
     let popupInterval;
     let randomDelayTimer;
     const startRandomPopup = () => {
-      const randomDelay = Math.random() * (15000 - 5000) + 5000;
+      const delay = 20000; // 60,000 milliseconds = 1 minute
       randomDelayTimer = setTimeout(() => {
-        // setPopupTimer(1);
+        setPopupTimer(1);
         setShowPopup(true);
-      }, randomDelay);
+      }, delay);
     };
+
     startRandomPopup();
     if (showPopup && popupTimer !== null) {
       popupInterval = setInterval(() => {
@@ -175,11 +177,45 @@ const Index = () => {
       setBalance((prev) => prev - amount);
     }
   };
+
+// handle tab change
+  const handleTabChange = (mode) => {
+    const minutes = parseInt(mode); // "1min" → 1
+    setActiveTab(mode);
+    setTimeRemaining(minutes * 60);
+    setShowPopup(false);
+    setHasShownPopup(false);
+  };
+  
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins}${mins}:${secs.toString().padStart(2, "0")}`;
+    return `${mins.toString().padStart(2, "0")} : ${secs
+      .toString()
+      .padStart(2, "0")}`;
   };
+
+  // Countdown timer logic
+  useEffect(() => {
+    if (timeRemaining <= 0) return;
+
+    const timer = setInterval(() => {
+      setTimeRemaining((prev) => {
+        const next = prev - 1;
+
+        if (next === 10) {
+          setPopupTimer(10);
+          setShowPopup(true);
+        }
+
+        return next;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeRemaining]);
+
+
   return (
     <div className="game-container">
       <header className="game-header">
@@ -203,7 +239,7 @@ const Index = () => {
           <button
             key={mode}
             className={`nav-btn ${activeTab === mode ? "active" : ""}`}
-            onClick={() => setActiveTab(mode)}
+            onClick={() => handleTabChange(mode)}
           >
             <div className="clock-icon" />
             Win Go {mode.replace("min", "Min")}
@@ -227,45 +263,52 @@ const Index = () => {
         </div>
         <div className="time-remaining">
           <div className="tm-label">Time remaining</div>
-          <div style={{ display: "flex", alignItems: "center" , justifyContent: "end"}}>
-            {formatTime(timeRemaining)
-              .split("")
-              .map((char, idx) =>
-                char === ":" ? (
-                  <span key={idx} className="time-separator">
-                    :
-                  </span>
-                ) : (
-                  <div key={idx} className="time-display">
-                    {char}
-                  </div>
-                )
-              )}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
+             {formatTime(timeRemaining)
+          .split("")
+          .map((char, idx) => {
+            if (char === ":") {
+              return (
+                <span key={idx} className="time-separator">
+                  :
+                </span>
+              );
+            } else if (char === " ") {
+              return <span key={idx} style={{ width: "8px" }} />;
+            } else {
+              return (
+                <div key={idx} className="time-display">
+                  {char}
+                </div>
+              );
+            }
+          })}
           </div>
+
           <div className="period-id">{currentPeriod}</div>
         </div>
       </div>
       {activeTab && (
         <>
-        <div className="bating-panel-main">
-          <BettingPanel
-            onPlaceBet={placeBet}
-            balance={balance}
-            currentBets={currentBets}
-            handleBetClick={handleBetClick}
+          <div className="bating-panel-main">
+            <BettingPanel
+              onPlaceBet={placeBet}
+              balance={balance}
+              currentBets={currentBets}
+              handleBetClick={handleBetClick}
             />
-          <GameBoard
-            onBetClick={handleBetClick}
-            gameResults={gameResults}
-            onBet={placeBet}
-            currentBets={currentBets}
+            <GameBoard
+              onBetClick={handleBetClick}
+              gameResults={gameResults}
+              onBet={placeBet}
+              currentBets={currentBets}
             />
-            </div>
+          </div>
         </>
       )}
       <GameHistory results={gameResults} bettingHistory={bettingHistory} />
       {/* popup timer start */}
-      {showPopup && popupTimer !== null && (
+       {showPopup && popupTimer !== null && (
         <div className="random-timer-overlay">
           <div className="random-timer-popup">
             <div className="random-timer-digits-container">
