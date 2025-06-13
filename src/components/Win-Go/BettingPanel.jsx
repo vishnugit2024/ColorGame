@@ -23,7 +23,7 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
     return (
       <div className="bet-modal-overlay">
         <div className={`bet-modal ${betType}-theme`}>
-       <div className={`modal-header-1 ${betType}-header`}>
+          <div className={`modal-header-1 ${betType}-header`}>
             <h3>Win Go 1min</h3>
             <div className="bet-selection">
               Select {betType}
@@ -47,19 +47,19 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
             <div className="quantity-section">
               <span>Quantity</span>
               <div className="quantity-controls">
-                <button 
+                <button
                   className="quantity-btn"
                   onClick={() => setSelectedAmount(Math.max(1, selectedAmount - 1))}
                 >
                   -
                 </button>
-                <input 
-                  type="number" 
+                <input
+                  type="number"
                   value={selectedAmount}
                   onChange={(e) => setSelectedAmount(Math.max(1, parseInt(e.target.value) || 1))}
                   className="quantity-input"
                 />
-                <button 
+                <button
                   className="quantity-btn"
                   onClick={() => setSelectedAmount(selectedAmount + 1)}
                 >
@@ -85,13 +85,13 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
             </div>
           </div>
           <div className="modal-actions">
-            <button 
+            <button
               className="cancel-btn"
               onClick={() => setShowBetModal(false)}
             >
               Cancel
             </button>
-            <button 
+            <button
               className="confirm-btn"
               onClick={confirmBet}
             >
@@ -106,19 +106,19 @@ const BettingPanel = ({ onPlaceBet, currentBets }) => {
   return (
     <div className="betting-panel">
       <div className="color-bets">
-  <button className="bet-btn green-bet" onClick={() => handleBetClick('green')}>
-    Green
-    {currentBets.green && <span className="bet-amount">₹{currentBets.green}</span>}
-  </button>
-  <button className="bet-btn violet-bet" onClick={() => handleBetClick('violet')}>
-    Violet
-    {currentBets.violet && <span className="bet-amount">₹{currentBets.violet}</span>}
-  </button>
-  <button className="bet-btn red-bet" onClick={() => handleBetClick('red')}>
-    Red
-    {currentBets.red && <span className="bet-amount">₹{currentBets.red}</span>}
-  </button>
-</div>
+        <button className="bet-btn green-bet" onClick={() => handleBetClick('green')}>
+          Green
+          {currentBets.green && <span className="bet-amount">₹{currentBets.green}</span>}
+        </button>
+        <button className="bet-btn violet-bet" onClick={() => handleBetClick('violet')}>
+          Violet
+          {currentBets.violet && <span className="bet-amount">₹{currentBets.violet}</span>}
+        </button>
+        <button className="bet-btn red-bet" onClick={() => handleBetClick('red')}>
+          Red
+          {currentBets.red && <span className="bet-amount">₹{currentBets.red}</span>}
+        </button>
+      </div>
       {getTotalBetAmount() > 0 && (
         <div className="total-bets">
           Total Bets: ₹{getTotalBetAmount()}
