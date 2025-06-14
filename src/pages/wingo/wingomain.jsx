@@ -6,13 +6,34 @@ import BettingPanel from "../../components/Win-Go/BettingPanel";
 import GameHistory from "../../components/Win-Go/GameHistory";
 import "./game.css";
 import { Link } from "react-router-dom";
+import audio from '/audio/timer_count.mp3'
+import winnerImage from '../../assets/winner.png';
 const Index = () => {
   const [balance, setBalance] = useState(35131468.36);
   const [currentBets, setCurrentBets] = useState({});
   const [gameResults, setGameResults] = useState([]);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const [currentPeriod, setCurrentPeriod] = useState("202506050732");
-  const [activeTab, setActiveTab] = useState("1min");
+  const [result, setResult] = useState(false);
+  // ADD THIS at the top in your useState declarations
+  const [timers, setTimers] = useState({
+    1: 11,
+    3: 180,
+    5: 300,
+    10: 600,
+  });
+
+  const [activeTab, setActiveTab] = useState('1min');
+  const [popupTimer, setPopupTimer] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showResultPopup, setShowResultPopup] = useState(false);
+  const [currentTabPopup, setCurrentTabPopup] = useState(null);
+  const [hasShownPopup, setHasShownPopup] = useState({
+    '1min': false,
+    '3min': false,
+    '5min': false,
+    '10min': false,
+  });
   const [bettingHistory] = useState([
     {
       period: "202506050731",
@@ -79,53 +100,110 @@ const Index = () => {
       setShowBetModal(false);
     }
   };
-  // popup ke liye timer state start
-  const [popupTimer, setPopupTimer] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          generateGameResult();
-          return 60;
-        }
-        return prev - 1;
+    let popupInterval = null;
+    let resumeTimeout = null;
+    let isPaused = false;
+
+    const interval = setInterval(() => {
+      if (isPaused) return;
+
+      setTimers((prevTimers) => {
+        const updatedTimers = { ...prevTimers };
+
+        Object.entries(updatedTimers).forEach(([tabKey, time]) => {
+          if (time > 0) {
+            updatedTimers[tabKey] = time - 1;
+
+            // Play sound
+            if (time <= 10 && time >= 2) {
+              const tickAudio = new Audio(audio);
+              tickAudio.play().catch((e) => console.log("Sound play error:", e));
+            }
+
+            // Trigger countdown popup at 11
+            if (time === 11 && !hasShownPopup[tabKey]) {
+              setPopupTimer(10);
+              setCurrentTabPopup(tabKey);
+              setShowPopup(true);
+
+              let countdown = 10;
+              popupInterval = setInterval(() => {
+                countdown--;
+                setPopupTimer(countdown);
+
+                if (countdown <= 0) {
+                  clearInterval(popupInterval);
+                  setShowPopup(false);
+                  setShowResultPopup(true);
+                  setResult(true); // ✅ show result
+                  isPaused = true; // ✅ pause timer
+
+                  resumeTimeout = setTimeout(() => {
+                    setShowResultPopup(false);
+                    setResult(false); // ✅ hide result
+                    generateGameResult(); // ✅ generate result
+                    isPaused = false; // ✅ resume timer
+                  }, 3000);
+                }
+              }, 1000);
+
+              setHasShownPopup((prevShown) => ({
+                ...prevShown,
+                [tabKey]: true,
+              }));
+            }
+          } else {
+            updatedTimers[tabKey] = parseFloat(tabKey) * 60;
+
+            setHasShownPopup((prevShown) => ({
+              ...prevShown,
+              [tabKey]: false,
+            }));
+          }
+        });
+
+        return updatedTimers;
       });
     }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-  useEffect(() => {
-    let popupInterval;
-    let randomDelayTimer;
-    const startRandomPopup = () => {
-      const delay = 20000; // 60,000 milliseconds = 1 minute
-      randomDelayTimer = setTimeout(() => {
-        setPopupTimer(1);
-        setShowPopup(true);
-      }, delay);
-    };
 
-    startRandomPopup();
-    if (showPopup && popupTimer !== null) {
-      popupInterval = setInterval(() => {
-        setPopupTimer((prev) => {
-          if (prev <= 1) {
-            setShowPopup(false);
-            clearInterval(popupInterval);
-            startRandomPopup();
-            return null;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
     return () => {
+      clearInterval(interval);
       clearInterval(popupInterval);
-      clearTimeout(randomDelayTimer);
+      clearTimeout(resumeTimeout);
     };
-  }, [showPopup, popupTimer]);
-  // pupup ke liye timer end
+  }, [hasShownPopup]);
+
+
+  useEffect(() => {
+    Object.entries(timers).forEach(([tab, value]) => {
+      if (value === 10 && !hasShownPopup[tab]) {
+        setPopupTimer(10);
+        setShowPopup(true);
+        setCurrentTabPopup(tab);
+        setHasShownPopup((prev) => ({ ...prev, [tab]: true }));
+      }
+    });
+  }, [timers]);
+
+  useEffect(() => {
+    const audio = new Audio("/sounds/tick.mp3");
+    audio.load(); // preload on mount
+  }, []);
+
+  const handleTabChange = (mode) => {
+    setActiveTab(mode);
+    setShowPopup(false);
+  };
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, "0")} : ${secs
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   const generateGameResult = () => {
     const winningNumber = Math.floor(Math.random() * 10);
     const isSmall = winningNumber < 5;
@@ -178,44 +256,6 @@ const Index = () => {
     }
   };
 
-// handle tab change
-  const handleTabChange = (mode) => {
-    const minutes = parseInt(mode); // "1min" → 1
-    setActiveTab(mode);
-    setTimeRemaining(minutes * 60);
-    setShowPopup(false);
-    setHasShownPopup(false);
-  };
-  
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")} : ${secs
-      .toString()
-      .padStart(2, "0")}`;
-  };
-
-  // Countdown timer logic
-  useEffect(() => {
-    if (timeRemaining <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeRemaining((prev) => {
-        const next = prev - 1;
-
-        if (next === 10) {
-          setPopupTimer(10);
-          setShowPopup(true);
-        }
-
-        return next;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeRemaining]);
-
-
   return (
     <div className="game-container">
       <header className="game-header">
@@ -254,40 +294,42 @@ const Index = () => {
             Win Go {activeTab.replace("min", "Min")}
           </div>
           <div className="last-result">
-            {gameResults.slice(0, 5).map((res, idx) => (
-              <span key={idx} className={`ball ball-${res.number}`}>
+            {gameResults.slice(0, 5).map((res, index) => (
+              <span key={`${res.period}-${res.timestamp}`} className={`ball ball-${res.number}`}>
                 {res.number}
               </span>
             ))}
+
           </div>
         </div>
         <div className="time-remaining">
           <div className="tm-label">Time remaining</div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
-             {formatTime(timeRemaining)
-          .split("")
-          .map((char, idx) => {
-            if (char === ":") {
-              return (
-                <span key={idx} className="time-separator">
-                  :
-                </span>
-              );
-            } else if (char === " ") {
-              return <span key={idx} style={{ width: "8px" }} />;
-            } else {
-              return (
-                <div key={idx} className="time-display">
-                  {char}
-                </div>
-              );
-            }
-          })}
+            {formatTime(timers[parseInt(activeTab)]) // instead of timeRemaining
+              .split("")
+              .map((char, idx) => {
+                if (char === ":") {
+                  return (
+                    <span key={idx} className="time-separator">
+                      :
+                    </span>
+                  );
+                } else if (char === " ") {
+                  return <span key={idx} style={{ width: "8px" }} />;
+                } else {
+                  return (
+                    <div key={idx} className="time-display">
+                      {char}
+                    </div>
+                  );
+                }
+              })}
           </div>
 
           <div className="period-id">{currentPeriod}</div>
         </div>
       </div>
+
       {activeTab && (
         <>
           <div className="bating-panel-main">
@@ -308,7 +350,7 @@ const Index = () => {
       )}
       <GameHistory results={gameResults} bettingHistory={bettingHistory} />
       {/* popup timer start */}
-       {showPopup && popupTimer !== null && (
+      {showPopup && popupTimer !== null && (
         <div className="random-timer-overlay">
           <div className="random-timer-popup">
             <div className="random-timer-digits-container">
@@ -324,6 +366,19 @@ const Index = () => {
           </div>
         </div>
       )}
+
+      {result && (
+        <div className="result-pop">
+          <img src={winnerImage} alt="Winner" className="winner-image" />
+          <p className="result-win-msg">Congratulations</p>
+          <div className="result-details-pop">
+            <p className="result-bonus">Bonus</p>
+            <p className="result-price">₹ 2000.00</p>
+            <span className="result-period">Period: 1 minute 20240417011344</span>
+          </div>
+        </div>
+      )}
+
 
       {/* popup timer end */}
       {/* small and big ka balance history start */}

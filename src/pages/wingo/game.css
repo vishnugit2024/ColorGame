@@ -7,10 +7,12 @@
 .game-container {
   width: 98%;
   margin: 0.7rem auto 0;
-  min-height: 100vh;
+  min-height: 100%;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  position: relative;
 }
+
 
 .game-header {
   margin-bottom: 10px;
@@ -1043,11 +1045,14 @@
 
 /* random countdown */
 .random-timer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  top: 40%;
+  transform: translate(0%, 0);
+  left: 0%;
+  margin: auto;
+  border-radius: 10px;
+  width: 100%;
+  height: 40vh;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -1061,7 +1066,6 @@
   border-radius: 15px;
   text-align: center;
   color: white;
-  animation: fadeInOut 4s forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1289,13 +1293,81 @@
   margin-top: 10px;
   border-radius: 10px;
   height: 19.61333rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .color-bets {
   background-color: #3c2d98;
 }
 
-.history-header span , .history-row span{
+.history-header span,
+.history-row span {
   width: 24%;
   text-align: center;
+}
+
+.result-pop {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  /* padding: 30px 50px; */
+  border-radius: 16px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 9999;
+  text-align: center;
+}
+
+.result-pop img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+
+
+.result-win-msg {
+  font-size: 26px;
+  color: white;
+  transform: translate(-50%, 0);
+  top: 35%;
+  left: 50%;
+  position: absolute;
+  margin: 0;
+}
+
+.result-details-pop {
+  transform: translate(-50%, 0);
+  top: 58%;
+  left: 50%;
+  position: absolute;
+  line-height: 1;
+  width: 100%;
+}
+
+.result-bonus {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f56549;
+}
+
+.result-price {
+  font-size: 28px;
+  color: #f46a4a;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.result-period{
+  font-size: 12px;
+  color: gray;
+  margin: 0;
+  font-weight: 500;
 }
