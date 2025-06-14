@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -34,6 +34,8 @@ import TranscationHistory from "./pages/TranscationHistory/TranscationHistory";
 import K3DiceGame from "./pages/K3Game/K3DiceGame";
 
 const App = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
   return (
     <>
       <div id="app">
@@ -71,7 +73,9 @@ const App = () => {
 
           <Route path="/wingo" element={<WingoMain />} />
         </Routes>
-        <BottomNav />
+        {pathname === "/wingo" || pathname === "/k3DiceGame" ? null : (
+          <BottomNav />
+        )}
       </div>
     </>
   );

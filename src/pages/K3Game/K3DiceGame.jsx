@@ -425,7 +425,7 @@ const K3DiceGame = () => {
               <div>
                 <div className="game-history-number">
                   <div className="number">12646987456</div>
-                    <button className="game-history-status">failed</button>
+                  <button className="game-history-status">failed</button>
                 </div>
                 <div className="date-and-time-history">
                   <div className="time">05:12</div>
