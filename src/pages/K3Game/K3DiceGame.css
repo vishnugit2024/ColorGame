@@ -135,6 +135,23 @@
   font-weight: 600;
 }
 
+.game-number-timing .Running-counter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-number-timing .Running-counter p {
+  margin: 0;
+  color: #00b977;
+  background: #fff;
+  border-radius: 5px;
+  font-weight: 700;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+}
+
 .k3-game-play-section .three-dice-animation {
   background: #ffdb7a;
   border-radius: 10px;
@@ -483,4 +500,43 @@
   display: flex;
   gap: 7px;
   color: lightgray;
+}
+
+/* ===== popup css ===== */
+
+.k3-tab-change-data {
+  position: relative;
+}
+.k3-timer-popup-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.k3-timer-popup-content h1 {
+  background: linear-gradient(to bottom, #ffc36a, #fff38a);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #8f5206;
+  animation: popIn 0.3s ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
