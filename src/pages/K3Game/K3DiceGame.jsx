@@ -68,47 +68,7 @@ const gameHistorydiceImages = {
   6: gamehistorydice6,
 };
 
-const historybtnData = [
-  {
-    period: "202506140683",
-    sum: 10,
-    size: "Big",
-    parity: "even",
-    result: [4, 2, 4],
-  },
-  {
-    period: "202506140682",
-    sum: 13,
-    size: "Big",
-    parity: "odd",
-    result: [3, 5, 5],
-  },
-  {
-    period: "202506140681",
-    sum: 10,
-    size: "Big",
-    parity: "even",
-    result: [1, 4, 5],
-  },
-  {
-    period: "202506140680",
-    sum: 7,
-    size: "Small",
-    parity: "odd",
-    result: [1, 2, 4],
-  },
-  {
-    period: "202506140679",
-    sum: 12,
-    size: "Big",
-    parity: "even",
-    result: [3, 4, 5],
-  },
-];
-
-const getDiceImage = (val) => {
-  return [null, dice1, dice2, dice3, dice4, dice5, dice6][val];
-};
+const diceImages = [dice1, dice2, dice3, dice4, dice5, dice6];
 const tabOptions = ["Total", "2 same", "3 same", "Different"];
 const matchingPairs = ["11", "22", "33", "44", "55", "66"];
 const uniquePairs = ["11", "22", "33", "44", "55", "66"];
@@ -121,8 +81,10 @@ const K3DiceGame = () => {
   const [historyTab, setHistoryTab] = useState("game");
   const [timeLeft, setTimeLeft] = useState(getSecondsFromKey("1"));
   const [showPopup, setShowPopup] = useState(false);
-  const [diceValues, setDiceValues] = useState([1, 2, 5]);
+  const [diceResult, setDiceResult] = useState([1, 1, 1]); // final dice values
+  const [diceHistory, setDiceHistory] = useState([]);
 
+  const [shuffling, setShuffling] = useState(false);
   // ================ Funcanility Code  =========================
 
   useEffect(() => {
@@ -147,18 +109,48 @@ const K3DiceGame = () => {
   }, [timeLeft]);
 
   useEffect(() => {
-    if (timeLeft !== 0) return;
-    const timeout = setTimeout(() => {
-      const newDice = [
-        Math.ceil(Math.random() * 6),
-        Math.ceil(Math.random() * 6),
-        Math.ceil(Math.random() * 6),
-      ];
-      setDiceValues(newDice);
-      setTimeLeft(getSecondsFromKey(selected));
-    }, 1000);
-    return () => clearTimeout(timeout);
+    if (timeLeft === 0) {
+      setShuffling(true);
+      const shuffleInterval = setInterval(() => {
+        setDiceResult([
+          Math.floor(Math.random() * 6) + 1,
+          Math.floor(Math.random() * 6) + 1,
+          Math.floor(Math.random() * 6) + 1,
+        ]);
+      }, 100); // shuffle fast every 100ms
+
+      setTimeout(() => {
+        clearInterval(shuffleInterval);
+        const final = [
+          Math.floor(Math.random() * 6) + 1,
+          Math.floor(Math.random() * 6) + 1,
+          Math.floor(Math.random() * 6) + 1,
+        ];
+        const finalResult = getDiceResultInfo(final);
+        setDiceResult(final);
+        setShuffling(false);
+        setTimeLeft(getSecondsFromKey(selected));
+
+        setDiceHistory((prev) => [finalResult, ...prev.slice(0, 9)]); // 🔥 actual update
+      }, 2000);
+    }
   }, [timeLeft]);
+
+  const getDiceResultInfo = (diceArray) => {
+    const sum = diceArray.reduce((acc, val) => acc + val, 0);
+    const size = sum <= 10 ? "Small" : "Big";
+    const parity = sum % 2 === 0 ? "even" : "odd";
+    const images = diceArray.map((num) => gameHistorydiceImages[num]);
+
+    return {
+      period: Date.now().toString().slice(0, 12), // e.g. 202506140685
+      sum,
+      size,
+      parity,
+      result: diceArray,
+      images,
+    };
+  };
 
   return (
     <>
@@ -235,10 +227,10 @@ const K3DiceGame = () => {
           </div>
           <div className="three-dice-animation">
             <div className="three-dice-inner">
-              {diceValues.map((val, index) => (
-                <div className="dice-1" key={index}>
+              {diceResult.map((val, i) => (
+                <div key={i} className="dice-1">
                   <img
-                    src={getDiceImage(val)}
+                    src={diceImages[val - 1]}
                     className="dice-img"
                     alt={`dice-${val}`}
                   />
@@ -485,16 +477,16 @@ const K3DiceGame = () => {
                 <div>Results</div>
               </div>
 
-              {historybtnData.map((item) => (
-                <div className="k3-gameHistory-row" key={item.period}>
-                  <div>{item.period}</div>
+              {diceHistory.map((diceHistory) => (
+                <div className="k3-gameHistory-row" key={diceHistory.period}>
+                  <div>{diceHistory.period}</div>
 
-                  <div>{item.sum}</div>
-                  <div>{item.size}</div>
-                  <div>{item.parity}</div>
+                  <div>{diceHistory.sum}</div>
+                  <div>{diceHistory.size}</div>
+                  <div>{diceHistory.parity}</div>
 
                   <div className="k3-dice-images">
-                    {item.result.map((num, idx) => (
+                    {diceHistory.result.map((num, idx) => (
                       <img
                         src={gameHistorydiceImages[num]}
                         alt={`dice-${num}`}
