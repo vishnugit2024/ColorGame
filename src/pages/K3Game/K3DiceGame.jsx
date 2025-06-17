@@ -85,7 +85,7 @@ const K3DiceGame = () => {
   const [historyTab, setHistoryTab] = useState("game");
   const [timeLeft, setTimeLeft] = useState(getSecondsFromKey("1"));
   const [showPopup, setShowPopup] = useState(false);
-  const [diceResult, setDiceResult] = useState([1, 1, 1]); // final dice values
+  const [diceResult, setDiceResult] = useState([3, 5, 6]); // final dice values
   const [diceHistory, setDiceHistory] = useState([]);
   const [gameresult, setGameResult] = useState(false);
   const [shuffling, setShuffling] = useState(false);
@@ -140,7 +140,7 @@ const K3DiceGame = () => {
       }, 2000);
       setTimeout(() => {
         setGameResult(false);
-      }, 4000);
+      }, 5000);
     }
   }, [timeLeft]);
 
