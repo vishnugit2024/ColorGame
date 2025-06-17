@@ -17,6 +17,9 @@ import gamehistorydice5 from "../../assets/gamehistorydice5.png";
 import gamehistorydice6 from "../../assets/gamehistorydice6.png";
 import redball from "../../assets/k3gameball.png";
 import greenball from "../../assets/kmgameballgreen.png";
+import K3GameBet from "../../components/k3Game/K3GameBet";
+import gameresultWinImage from "../../assets/winner.png";
+import gameresultLossImage from "../../assets/loss.png";
 
 const timeOptions = [
   { label: "1Min", key: "1" },
@@ -28,7 +31,7 @@ const timeOptions = [
 const getSecondsFromKey = (key) => {
   switch (key) {
     case "1":
-      return 10;
+      return 60;
     case "3":
       return 180;
     case "5":
@@ -75,6 +78,7 @@ const uniquePairs = ["11", "22", "33", "44", "55", "66"];
 const uniqueSingles = ["1", "2", "3", "4", "5", "6"];
 const tripleNumbers = ["111", "222", "333", "444", "555", "666"];
 const singleNumbers = ["1", "2", "3", "4", "5", "6"];
+
 const K3DiceGame = () => {
   const [selected, setSelected] = useState("1");
   const [activeTab, setActiveTab] = useState("Total");
@@ -83,7 +87,7 @@ const K3DiceGame = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [diceResult, setDiceResult] = useState([1, 1, 1]); // final dice values
   const [diceHistory, setDiceHistory] = useState([]);
-
+  const [gameresult, setGameResult] = useState(false);
   const [shuffling, setShuffling] = useState(false);
   // ================ Funcanility Code  =========================
 
@@ -117,7 +121,7 @@ const K3DiceGame = () => {
           Math.floor(Math.random() * 6) + 1,
           Math.floor(Math.random() * 6) + 1,
         ]);
-      }, 100); // shuffle fast every 100ms
+      }, 100);
 
       setTimeout(() => {
         clearInterval(shuffleInterval);
@@ -130,9 +134,13 @@ const K3DiceGame = () => {
         setDiceResult(final);
         setShuffling(false);
         setTimeLeft(getSecondsFromKey(selected));
+        setGameResult(true);
 
-        setDiceHistory((prev) => [finalResult, ...prev.slice(0, 9)]); // 🔥 actual update
+        setDiceHistory((prev) => [finalResult, ...prev.slice(0, 9)]);
       }, 2000);
+      setTimeout(() => {
+        setGameResult(false);
+      }, 4000);
     }
   }, [timeLeft]);
 
@@ -150,6 +158,16 @@ const K3DiceGame = () => {
       result: diceArray,
       images,
     };
+  };
+
+  // ========= Bet Ui State ============
+
+  const [showBetUI, setShowBetUI] = useState(false);
+  const [selectedBetOption, setSelectedBetOption] = useState(null);
+
+  const handleBetClick = (option) => {
+    setSelectedBetOption(option); // e.g. "Red", "5", etc.
+    setShowBetUI(true); // show BetSection
   };
 
   return (
@@ -274,6 +292,7 @@ const K3DiceGame = () => {
                           item.color === "red" ? redball : greenball
                         })`,
                       }}
+                      onClick={() => handleBetClick(item.number)}
                     >
                       <span
                         className={
@@ -292,22 +311,34 @@ const K3DiceGame = () => {
 
               {/* Bottom Tabs */}
               <div className="k3-bottom-tabs">
-                <div className="k3-tab orange">
+                <div
+                  className="k3-tab orange"
+                  onClick={() => handleBetClick("Big")}
+                >
                   Big
                   <br />
                   1.92X
                 </div>
-                <div className="k3-tab blue">
+                <div
+                  className="k3-tab blue"
+                  onClick={() => handleBetClick("Small")}
+                >
                   Small
                   <br />
                   1.92X
                 </div>
-                <div className="k3-tab red">
+                <div
+                  className="k3-tab red"
+                  onClick={() => handleBetClick("Odd")}
+                >
                   Odd
                   <br />
                   1.92X
                 </div>
-                <div className="k3-tab green">
+                <div
+                  className="k3-tab green"
+                  onClick={() => handleBetClick("Even")}
+                >
                   Even
                   <br />
                   1.92X
@@ -517,6 +548,30 @@ const K3DiceGame = () => {
             </div>
           )}
         </div>
+
+        {showBetUI && (
+          <K3GameBet
+            selectedOption={selectedBetOption}
+            onClose={() => setShowBetUI(false)} // close function
+          />
+        )}
+
+        {gameresult && (
+          <div className="k3-game-user-status">
+            {gameresult === "win" ? (
+              <img src={gameresultWinImage} alt="Result" />
+            ) : (
+              <img src={gameresultLossImage} alt="Result" />
+            )}
+            <div
+              className={`k3-game-status-text ${
+                gameresult === "win" ? "win" : "loss"
+              }`}
+            >
+              {gameresult === "win" ? "You Win!" : "You Lose"}
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
