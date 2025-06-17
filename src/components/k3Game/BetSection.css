@@ -10,6 +10,8 @@
   animation: slideUp 0.3s ease-out;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
   max-height: 70vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Slide animation */
@@ -47,11 +49,10 @@
 .k3-bet-quantity-balance-row,
 .k3-bet-quantity-quantity-row {
   margin-bottom: 12px;
-      margin-bottom: 12px;
-    display: flex
-;
-    justify-content: space-between;
-    align-items: center;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .k3-bet-quantity-balance-buttons,
@@ -65,7 +66,7 @@
 }
 
 .k3-bet-quantity-quantity-controls input {
-    width: 100px;
+  width: 100px;
 }
 
 .k3-bet-btn,

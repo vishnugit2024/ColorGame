@@ -18,6 +18,8 @@ import gamehistorydice6 from "../../assets/gamehistorydice6.png";
 import redball from "../../assets/k3gameball.png";
 import greenball from "../../assets/kmgameballgreen.png";
 import K3GameBet from "../../components/k3Game/K3GameBet";
+import gameresultWinImage from "../../assets/winner.png";
+import gameresultLossImage from "../../assets/loss.png";
 
 const timeOptions = [
   { label: "1Min", key: "1" },
@@ -29,7 +31,7 @@ const timeOptions = [
 const getSecondsFromKey = (key) => {
   switch (key) {
     case "1":
-      return 10;
+      return 60;
     case "3":
       return 180;
     case "5":
@@ -85,7 +87,7 @@ const K3DiceGame = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [diceResult, setDiceResult] = useState([1, 1, 1]); // final dice values
   const [diceHistory, setDiceHistory] = useState([]);
-
+  const [gameresult, setGameResult] = useState(false);
   const [shuffling, setShuffling] = useState(false);
   // ================ Funcanility Code  =========================
 
@@ -132,9 +134,13 @@ const K3DiceGame = () => {
         setDiceResult(final);
         setShuffling(false);
         setTimeLeft(getSecondsFromKey(selected));
+        setGameResult(true);
 
         setDiceHistory((prev) => [finalResult, ...prev.slice(0, 9)]);
       }, 2000);
+      setTimeout(() => {
+        setGameResult(false);
+      }, 4000);
     }
   }, [timeLeft]);
 
@@ -548,6 +554,23 @@ const K3DiceGame = () => {
             selectedOption={selectedBetOption}
             onClose={() => setShowBetUI(false)} // close function
           />
+        )}
+
+        {gameresult && (
+          <div className="k3-game-user-status">
+            {gameresult === "win" ? (
+              <img src={gameresultWinImage} alt="Result" />
+            ) : (
+              <img src={gameresultLossImage} alt="Result" />
+            )}
+            <div
+              className={`k3-game-status-text ${
+                gameresult === "win" ? "win" : "loss"
+              }`}
+            >
+              {gameresult === "win" ? "You Win!" : "You Lose"}
+            </div>
+          </div>
         )}
       </section>
     </>

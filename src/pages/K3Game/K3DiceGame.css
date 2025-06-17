@@ -540,3 +540,49 @@
     opacity: 1;
   }
 }
+
+.k3-game-user-status {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none; /* Avoid blocking clicks */
+}
+
+.k3-game-user-status img {
+  width: 300px;
+  height: auto;
+  animation: popFadeIn 0.4s ease;
+}
+
+.k3-game-status-text {
+  position: absolute;
+  margin-top: 145px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.k3-game-status-text.win {
+  color: #28a745;
+}
+
+.k3-game-status-text.loss {
+ color: #dc3545;
+}
+
+@keyframes popFadeIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
