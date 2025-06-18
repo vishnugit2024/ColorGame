@@ -13,7 +13,6 @@
   position: relative;
 }
 
-
 .game-header {
   margin-bottom: 10px;
   text-align: center;
@@ -476,182 +475,194 @@
   border-radius: 8px;
 }
 
-.bet-modal-overlay {
+/* ====== Vishnu bet modal ====== */
+
+.wingo-bet-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   z-index: 1000;
 }
 
-.bet-modal {
-  background: white;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 400px;
-  color: #333;
+.wingo-bet-modal {
+  width: 100%;
+  max-width: 395px;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  animation: wingo-slideUp 0.3s ease-out;
   overflow: hidden;
 }
 
-.small-modal-header h3 {
-  padding: 16px;
-  color: white;
+@keyframes wingo-slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.wingo-bet-modal-header {
+  background: #222;
+  color: #fff;
+  padding: 10px;
   text-align: center;
 }
-
-.bet-selection {
-  background: white;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin: 4px;
-  font-size: 16px;
-  text-transform: capitalize;
-  opacity: 0.9;
+.wingo-bet-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
 }
 
-.selection-text {
-  background: white;
-  color: #333;
-  padding: 10px 20px;
+.wingo-bet-selection {
+  background: #fff;
+  color: #222;
+  padding: 5px 10px;
   border-radius: 20px;
-  margin: 4px;
-  font-size: 16px;
   font-weight: 500;
-  /* color: #fff; */
-  text-transform: capitalize;
-  opacity: 0.9;
+  margin-top: 10px;
+  display: inline-block;
 }
 
-.modal-content {
+.wingo-bet-modal-content {
   padding: 20px;
+  padding-bottom: 5px;
 }
 
-.balance-section-2,
-.quantity-section {
-  margin-bottom: 20px;
-}
-
-.balance-section-2 span,
-.quantity-section span {
-  display: block;
+.wingo-bet-balance-section,
+.wingo-bet-quantity-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
-.balance-options {
+.wingo-bet-balance-section h6,
+.wingo-bet-quantity-section h6 {
+  font-size: 16px;
+  color: #000;
+}
+
+.wingo-bet-balance-options {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
-.balance-btn {
+.wingo-bet-balance-btn {
   flex: 1;
-  padding: 10px;
+  padding: 5px;
   border: 2px solid #ddd;
   background: white;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.balance-btn.active {
+.wingo-bet-balance-btn.active {
   background: #ffc107;
   border-color: #ffc107;
-  color: #333;
-  font-weight: bold;
 }
 
-.quantity-controls {
+.wingo-bet-quantity-controls {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.quantity-btn {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #ddd;
+.wingo-bet-quantity-btn {
+  width: 30px;
+  height: 30px;
   background: white;
+  border: 2px solid #ddd;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-}
-
-.quantity-input {
-  flex: 1;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 16px;
-}
-
-.multiplier-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.multiplier-btn {
-  padding: 10px;
-  border: 2px solid #ddd;
-  background: white;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.multiplier-btn.active {
+.wingo-bet-quantity-input {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100px;
+}
+
+.wingo-bet-multiplier-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.wingo-bet-multiplier-btn {
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+.wingo-bet-multiplier-btn.active {
   background: #ffc107;
   border-color: #ffc107;
-  color: #333;
   font-weight: bold;
 }
 
-.agreement {
+.wingo-bet-agreement {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-.presale-rules {
-  color: #ff4757;
-  text-decoration: underline;
+.wingo-bet-presale-rules {
+  color: red;
   cursor: pointer;
 }
 
-.modal-actions {
+.wingo-bet-modal-actions {
   display: flex;
+  gap: 10px;
+  padding-inline: 10px;
+  margin-bottom: 10px;
 }
 
-.cancel-btn,
-.confirm-btn {
+.wingo-bet-cancel-btn,
+.wingo-bet-confirm-btn {
   flex: 1;
-  padding: 15px;
+  padding: 10px;
   border: none;
-  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
 }
 
-.cancel-btn {
+.wingo-bet-cancel-btn {
   background: #6c757d;
   color: white;
+  font-size: 12px;
 }
 
-.confirm-btn {
+.wingo-bet-confirm-btn {
   background: #ffc107;
-  color: #333;
+  color: #222;
+  font-size: 12px;
 }
 
-/* game history css started */
+/* ====== Vishnu modal End ==== */
+
 .history-tabs {
   display: flex;
   gap: 10px;
@@ -1000,7 +1011,6 @@
     height: 50px;
     font-size: 20px;
   }
-
 }
 
 .number-image-item {
@@ -1028,19 +1038,19 @@
 .green-header {
   background-color: #28a745;
   clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .violet-header {
   background: linear-gradient(#b659fe);
   clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .red-header {
   background-color: #dc3545;
   clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 /* random countdown */
@@ -1129,121 +1139,6 @@
   align-items: center;
 }
 
-/* Modal box */
-.bet-modal {
-  width: 90%;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Header base style */
-.modal-header {
-  padding: 16px;
-  color: white;
-  text-align: center;
-}
-
-.big-header {
-  background-color: #8e44ad;
-  clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  padding-bottom: 2rem;
-}
-
-.small-header {
-  background-color: #e74c3c;
-  clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
-  padding-bottom: 2rem;
-}
-
-.modal-content {
-  padding: 16px;
-}
-
-.balance-section-2,
-.quantity-section {
-  margin-bottom: 12px;
-}
-
-.balance-btn,
-.quantity-btn,
-.multiplier-btn {
-  margin: 4px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.balance-btn.active {
-  background-color: #3498db;
-  color: white;
-}
-
-.quantity-input {
-  width: 60px;
-  text-align: center;
-  padding: 6px;
-  font-size: 16px;
-  margin: 0 8px;
-}
-
-.multiplier-btn {
-  background-color: #ddd;
-}
-
-.agreement {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-top: 1px solid #ddd;
-}
-
-.cancel-btn,
-.confirm-btn {
-  flex: 1;
-  padding: 10px;
-  margin: 0 5px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.cancel-btn {
-  background-color: #ccc;
-}
-
-.confirm-btn {
-  background-color: #2ecc71;
-  color: white;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ye dono me green red and violet and jo small and big ka popup hai uske liye */
 
 .modal-header-1 {
@@ -1329,8 +1224,6 @@
   margin-bottom: 10px;
 }
 
-
-
 .result-win-msg {
   font-size: 26px;
   color: white;
@@ -1365,7 +1258,7 @@
   line-height: 1;
 }
 
-.result-period{
+.result-period {
   font-size: 12px;
   color: gray;
   margin: 0;
