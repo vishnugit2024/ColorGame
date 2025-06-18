@@ -573,7 +573,7 @@
 }
 
 .k3-game-status-text.loss {
- color: #dc3545;
+  color: #dc3545;
 }
 
 @keyframes popFadeIn {

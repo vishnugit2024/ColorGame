@@ -28,10 +28,13 @@ const timeOptions = [
   { label: "10Min", key: "10" },
 ];
 
+const countdownSound = new Audio('/audio/sound-2.mp3');
+
+
 const getSecondsFromKey = (key) => {
   switch (key) {
     case "1":
-      return 60;
+      return 10;
     case "3":
       return 180;
     case "5":
@@ -107,8 +110,15 @@ const K3DiceGame = () => {
   useEffect(() => {
     if (timeLeft <= 5 && timeLeft > 0) {
       setShowPopup(true);
+      countdownSound.currentTime = 0;
+      countdownSound.play().catch((e) => {
+        // optional: handle autoplay block (some browsers require user interaction)
+        console.log("Autoplay blocked", e);
+      });
     } else {
       setShowPopup(false);
+      countdownSound.pause();
+      countdownSound.currentTime = 0;
     }
   }, [timeLeft]);
 

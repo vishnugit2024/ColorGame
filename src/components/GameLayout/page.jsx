@@ -6,8 +6,7 @@ import BettingPanel from "../../components/Win-Go/BettingPanel";
 import GameHistory from "../../components/Win-Go/GameHistory";
 import BettingModal from "../../components/BettingModal/BettingModal";
 import { Link } from "react-router-dom";
-import timerAudio from '/audio/timer_count.mp3';
-import winnerImage from '../../assets/winner.png';
+import winnerImage from "../../assets/winner.png";
 // import './game.css'; // Uncomment if you have this CSS file
 
 const GameLayout = () => {
@@ -52,13 +51,55 @@ const GameLayout = () => {
 
   // Hardcoded betting history (can be fetched/managed if dynamic)
   const [bettingHistory] = useState([
-    { period: "202506050731", time: "07:31:00", betType: "green", amount: 250.0, status: "success" },
-    { period: "202506050730", time: "07:30:00", betType: "red", amount: 100.0, status: "failed" },
-    { period: "202506050729", time: "07:29:00", betType: "number-5", amount: 450.0, status: "success" },
-    { period: "202506050728", time: "07:28:00", betType: "big", amount: 200.0, status: "failed" },
-    { period: "202506050727", time: "07:27:00", betType: "violet", amount: 675.0, status: "success" },
-    { period: "202506050726", time: "07:26:00", betType: "small", amount: 150.0, status: "failed" },
-    { period: "202506050725", time: "07:25:00", betType: "number-3", amount: 540.0, status: "success" },
+    {
+      period: "202506050731",
+      time: "07:31:00",
+      betType: "green",
+      amount: 250.0,
+      status: "success",
+    },
+    {
+      period: "202506050730",
+      time: "07:30:00",
+      betType: "red",
+      amount: 100.0,
+      status: "failed",
+    },
+    {
+      period: "202506050729",
+      time: "07:29:00",
+      betType: "number-5",
+      amount: 450.0,
+      status: "success",
+    },
+    {
+      period: "202506050728",
+      time: "07:28:00",
+      betType: "big",
+      amount: 200.0,
+      status: "failed",
+    },
+    {
+      period: "202506050727",
+      time: "07:27:00",
+      betType: "violet",
+      amount: 675.0,
+      status: "success",
+    },
+    {
+      period: "202506050726",
+      time: "07:26:00",
+      betType: "small",
+      amount: 150.0,
+      status: "failed",
+    },
+    {
+      period: "202506050725",
+      time: "07:25:00",
+      betType: "number-3",
+      amount: 540.0,
+      status: "success",
+    },
   ]);
 
   // --- Utility Functions ---
@@ -66,7 +107,9 @@ const GameLayout = () => {
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")} : ${secs.toString().padStart(2, "0")}`;
+    return `${mins.toString().padStart(2, "0")} : ${secs
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   const processBets = (result) => {
@@ -106,7 +149,7 @@ const GameLayout = () => {
     else if ([2, 4, 6, 8].includes(winningNumber)) colors = ["red"];
 
     const newResult = {
-      period: currentPeriodValue, // Use the period from when the result was triggered
+      period: currentPeriodValue,
       number: winningNumber,
       colors,
       size: isSmall ? "Small" : "Big",
@@ -114,7 +157,7 @@ const GameLayout = () => {
     };
 
     setGameResults((prev) => [newResult, ...prev.slice(0, 9)]); // Keep last 10 results
-    processBets(newResult); // Process bets with the new result
+    processBets(newResult);
 
     // Mark this tab as having processed its round
     setHasProcessedRound((prev) => ({
@@ -160,13 +203,13 @@ const GameLayout = () => {
 
     // Clear any pending timeouts/intervals associated with popups
     if (countdownIntervalRef.current) {
-        clearInterval(countdownIntervalRef.current);
-        countdownIntervalRef.current = null;
+      clearInterval(countdownIntervalRef.current);
+      countdownIntervalRef.current = null;
     }
     // Also clear the result popup timeout if switching tabs
     if (resultPopupTimeoutRef.current) {
-        clearTimeout(resultPopupTimeoutRef.current);
-        resultPopupTimeoutRef.current = null;
+      clearTimeout(resultPopupTimeoutRef.current);
+      resultPopupTimeoutRef.current = null;
     }
   };
 
@@ -192,61 +235,68 @@ const GameLayout = () => {
 
             // Play sound for last few seconds (e.g., last 5 seconds of betting)
             // This range should ideally be where betting closes, and the popup appears.
-            if (time <= 6 && time >= 1) { // This means sounds for main timer values 6, 5, 4, 3, 2, 1
-              const tickAudio = new Audio(timerAudio);
-              tickAudio.play().catch((e) => console.log("Sound play error:", e));
+            if (time <= 6 && time >= 1) {
+              // This means sounds for main timer values 6, 5, 4, 3, 2, 1
+              const tickAudio = new Audio("/audio/sound-2.mp3");
+
+              tickAudio
+                .play()
+                .catch((e) => console.log("Sound play error:", e));
             }
 
             // Trigger countdown popup logic
             // This condition means the main timer is currently '5', and on the next render, it will be '4'.
             // So, we want the popup to start displaying '4' to be in sync.
             if (time === 5 && !hasProcessedRound[numericTabKey]) {
-                if (!showPopup) {
-                    // Initialize popup timer to be '1' second less than the current 'time' value
-                    // This makes it show '4' when the main timer shows '4' (after its decrement)
-                    let initialCountdownValue = time - 1;
-                    setPopupTimer(initialCountdownValue);
-                    setShowPopup(true);
-                    setResultPopupPeriod(currentPeriod);
+              if (!showPopup) {
+                // Initialize popup timer to be '1' second less than the current 'time' value
+                // This makes it show '4' when the main timer shows '4' (after its decrement)
+                let initialCountdownValue = time - 1;
+                setPopupTimer(initialCountdownValue);
+                setShowPopup(true);
+                setResultPopupPeriod(currentPeriod);
 
-                    // Clear any existing countdown interval to prevent duplicates
-                    if (countdownIntervalRef.current) {
-                        clearInterval(countdownIntervalRef.current);
-                    }
-
-                    countdownIntervalRef.current = setInterval(() => {
-                        setPopupTimer((prevCountdown) => {
-                            const newCountdown = prevCountdown - 1;
-                            // When newCountdown becomes -1, it means it just showed 0, so clear and proceed
-                            if (newCountdown < 0) {
-                                clearInterval(countdownIntervalRef.current);
-                                countdownIntervalRef.current = null;
-                                setShowPopup(false); // Hide the 5-second countdown popup
-
-                                setShowResultPopup(true); // Show the result popup
-                                console.log("Result popup shown for period:", currentPeriod);
-                                generateGameResult(numericTabKey, currentPeriod);
-                                // The auto-closing of the result popup is handled by the dedicated useEffect below
-                            }
-                            return newCountdown;
-                        });
-                    }, 1000); // Countdown every second
+                // Clear any existing countdown interval to prevent duplicates
+                if (countdownIntervalRef.current) {
+                  clearInterval(countdownIntervalRef.current);
                 }
+
+                countdownIntervalRef.current = setInterval(() => {
+                  setPopupTimer((prevCountdown) => {
+                    const newCountdown = prevCountdown - 1;
+                    // When newCountdown becomes -1, it means it just showed 0, so clear and proceed
+                    if (newCountdown < 0) {
+                      clearInterval(countdownIntervalRef.current);
+                      countdownIntervalRef.current = null;
+                      setShowPopup(false); // Hide the 5-second countdown popup
+
+                      setShowResultPopup(true); // Show the result popup
+                      console.log(
+                        "Result popup shown for period:",
+                        currentPeriod
+                      );
+                      generateGameResult(numericTabKey, currentPeriod);
+                      // The auto-closing of the result popup is handled by the dedicated useEffect below
+                    }
+                    return newCountdown;
+                  });
+                }, 1000); // Countdown every second
+              }
             }
           } else {
             // Timer has reached 0.
             // Reset timer only IF its round has been processed (i.e., result generated and displayed)
             if (hasProcessedRound[numericTabKey]) {
-                updatedTimers[numericTabKey] = numericTabKey * 60; // Reset to full duration (e.g., 60, 180, etc.)
-                // Reset the processed flag for the new round
-                setHasProcessedRound((prev) => ({
-                    ...prev,
-                    [numericTabKey]: false,
-                }));
-                 // Increment currentPeriod only once when all timers that triggered a result reset
-                 // This logic might need refinement if you want different periods for different game modes
-                 // For now, it increments globally after one timer cycle completes.
-                setCurrentPeriod((prev) => String(parseInt(prev) + 1));
+              updatedTimers[numericTabKey] = numericTabKey * 60; // Reset to full duration (e.g., 60, 180, etc.)
+              // Reset the processed flag for the new round
+              setHasProcessedRound((prev) => ({
+                ...prev,
+                [numericTabKey]: false,
+              }));
+              // Increment currentPeriod only once when all timers that triggered a result reset
+              // This logic might need refinement if you want different periods for different game modes
+              // For now, it increments globally after one timer cycle completes.
+              setCurrentPeriod((prev) => String(parseInt(prev) + 1));
             }
           }
         });
@@ -430,7 +480,8 @@ const GameLayout = () => {
             <p className="result-bonus">Bonus</p>
             <p className="result-price">₹ 2000.00</p> {/* This is static */}
             <span className="result-period">
-              Period: 1 minute {resultPopupPeriod} {/* Display the period that triggered this result */}
+              Period: 1 minute {resultPopupPeriod}{" "}
+              {/* Display the period that triggered this result */}
             </span>
           </div>
         </div>

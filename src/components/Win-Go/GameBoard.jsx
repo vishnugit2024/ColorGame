@@ -1,15 +1,16 @@
 import React from "react";
 import "../../pages/wingo/game.css";
-import NumberBal0 from '../../assets/ball0.png';
-import NumberBall from '../../assets/ball1.png';
-import NumberBal2 from '../../assets/ball2.png';
-import NumberBal3 from '../../assets/ball3.png';
-import NumberBal4 from '../../assets/ball4.png';
-import NumberBal5 from '../../assets/ball5.png';
-import NumberBal6 from '../../assets/ball6.png';
-import NumberBal7 from '../../assets/ball7.png';
-import NumberBal8 from '../../assets/ball8.png';
-import NumberBal9 from '../../assets/ball9.png';
+import NumberBal0 from "../../assets/ball0.png";
+import NumberBall from "../../assets/ball1.png";
+import NumberBal2 from "../../assets/ball2.png";
+import NumberBal3 from "../../assets/ball3.png";
+import NumberBal4 from "../../assets/ball4.png";
+import NumberBal5 from "../../assets/ball5.png";
+import NumberBal6 from "../../assets/ball6.png";
+import NumberBal7 from "../../assets/ball7.png";
+import NumberBal8 from "../../assets/ball8.png";
+import NumberBal9 from "../../assets/ball9.png";
+
 const numberImageUrls = {
   0: NumberBal0,
   1: NumberBall,
@@ -33,7 +34,7 @@ const GameBoard = ({ onBetClick }) => {
               src={numberImageUrls[number]}
               alt={`Number ${number}`}
               className="number-image"
-              onClick={() => console.log(`Bet placed on number ${number}`)}
+              onClick={() => onBetClick(number)}
             />
           </div>
         ))}

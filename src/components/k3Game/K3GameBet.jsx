@@ -11,7 +11,7 @@ const K3GameBet = ({ selectedOption, onClose }) => {
   const totalAmount = selectedBalance * quantity * multiplier;
 
   return (
-    <div className="bet-section">
+   <div className="bet-modal-overlay"> <div className="bet-section">
       <div className="k3-bet-quantity-total-row">
         <span>Total:</span>
         <div className="k3-bet-quantity-total-value">{selectedOption}</div>
@@ -83,7 +83,7 @@ const K3GameBet = ({ selectedOption, onClose }) => {
           Total amount ₹{totalAmount}
         </button>
       </div>
-    </div>
+    </div></div>
   );
 };
 
